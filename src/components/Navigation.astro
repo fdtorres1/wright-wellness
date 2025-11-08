@@ -1,0 +1,113 @@
+---
+const currentPath = Astro.url.pathname;
+const navItems = [
+  { name: 'Home', href: '/' },
+  { name: 'Team', href: '/team' },
+  { 
+    name: 'Services & Fees', 
+    href: '/services',
+    submenu: [
+      { name: 'Overview', href: '/services/overview' },
+      { name: 'Counseling Services', href: '/services/counseling-services' },
+      { name: 'Medication Management', href: '/services/medication-management' },
+      { name: 'Massage Therapy', href: '/services/massage-therapy' },
+      { name: 'Assessment & Testing', href: '/services/assessment-testing' },
+      { name: 'Yoga', href: '/services/yoga' },
+      { name: 'Reduced Rate', href: '/services/reduced-rate' },
+    ]
+  },
+  { 
+    name: 'Forms', 
+    href: '/forms',
+    submenu: [
+      { name: 'English Forms', href: '/forms/english' },
+      { name: 'Formularios (Español)', href: '/forms/espanol' },
+    ]
+  },
+  { name: 'Mind-FULL Content', href: '/mind-full-content' },
+  { name: 'Contact', href: '/contact' },
+  { name: 'Join Our Team', href: '/join-our-team' },
+];
+---
+
+<nav class="hidden md:flex items-center space-x-6">
+  {navItems.map((item) => (
+    <div class="relative group">
+      <a 
+        href={item.href}
+        class={`text-neutral-dark hover:text-primary transition-colors font-body ${
+          currentPath === item.href ? 'underline' : ''
+        }`}
+      >
+        {item.name}
+      </a>
+      {item.submenu && (
+        <div class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+          <div class="py-2">
+            {item.submenu.map((subitem) => (
+              <a 
+                href={subitem.href}
+                class="block px-4 py-2 text-sm text-neutral-dark hover:bg-primary-light hover:text-white transition-colors"
+              >
+                {subitem.name}
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  ))}
+</nav>
+
+<!-- Mobile menu button -->
+<button 
+  id="mobile-menu-button"
+  class="md:hidden p-2 text-neutral-dark"
+  aria-label="Toggle menu"
+>
+  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+  </svg>
+</button>
+
+<!-- Mobile menu -->
+<div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 right-0 bg-white shadow-lg z-50">
+  <div class="px-4 py-4 space-y-2">
+    {navItems.map((item) => (
+      <div>
+        <a 
+          href={item.href}
+          class={`block py-2 text-neutral-dark hover:text-primary font-body ${
+            currentPath === item.href ? 'underline' : ''
+          }`}
+        >
+          {item.name}
+        </a>
+        {item.submenu && (
+          <div class="pl-4 mt-1 space-y-1">
+            {item.submenu.map((subitem) => (
+              <a 
+                href={subitem.href}
+                class="block py-1 text-sm text-neutral-dark hover:text-primary"
+              >
+                {subitem.name}
+              </a>
+            ))}
+          </div>
+        )}
+      </div>
+    ))}
+  </div>
+</div>
+
+<script>
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  
+  if (mobileMenuButton && mobileMenu) {
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  }
+</script>
+

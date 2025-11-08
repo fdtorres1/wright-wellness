@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Formularios del Paciente (Español)" description="Descargue formularios y documentos del paciente para Wright Wellness.">
+  <div class="container mx-auto px-4 py-16">
+    <div class="max-w-3xl mx-auto">
+      <h1 class="text-4xl font-heading font-bold mb-6 text-neutral-dark">Formularios del Paciente (Español)</h1>
+      
+      <div class="prose prose-lg max-w-none mb-8">
+        <p class="text-neutral-dark text-lg leading-relaxed mb-6">
+          Por favor descargue y complete los siguientes formularios opcionales antes de su primera cita.
+        </p>
+        
+        <div class="bg-primary-light/20 p-6 rounded-lg space-y-4">
+          <div>
+            <h2 class="text-xl font-heading font-semibold mb-2 text-neutral-dark">Autorización para divulgar información</h2>
+            <p class="text-neutral-dark mb-2">Autorización para compartir información médica.</p>
+            <a href="#" class="text-primary hover:underline font-semibold">Descargar PDF →</a>
+          </div>
+          
+          <div>
+            <h2 class="text-xl font-heading font-semibold mb-2 text-neutral-dark">Consentimiento Informado de Telesalud</h2>
+            <p class="text-neutral-dark mb-2">Consentimiento para servicios de telesalud.</p>
+            <a href="#" class="text-primary hover:underline font-semibold">Descargar PDF →</a>
+          </div>
+          
+          <div>
+            <h2 class="text-xl font-heading font-semibold mb-2 text-neutral-dark">Documentación de Custodia de Menores</h2>
+            <p class="text-neutral-dark mb-2">Formularios relacionados con la custodia de menores.</p>
+            <a href="#" class="text-primary hover:underline font-semibold">Descargar PDF →</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-8">
+        <p class="text-neutral-dark">
+          <strong>Nota:</strong> Estos formularios son marcadores de posición. Por favor contáctenos en 
+          <a href="mailto:office@wrightwellness.me" class="text-primary hover:underline">office@wrightwellness.me</a> 
+          o <a href="tel:6827774325" class="text-primary hover:underline">682-777-4325</a> para recibir los formularios reales.
+        </p>
+      </div>
+      
+      <div class="mt-8">
+        <a href="/forms" class="text-primary hover:underline font-semibold">← Volver a Formularios</a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+

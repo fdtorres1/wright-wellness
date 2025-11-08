@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { teamMembers } from '../../data/team';
+---
+
+<BaseLayout title="Our Team" description="Meet the compassionate team at Wright Wellness dedicated to your mental health and wellness.">
+  <div class="container mx-auto px-4 py-16">
+    <h1 class="text-4xl font-heading font-bold text-center mb-4 text-neutral-dark">Our Team</h1>
+    <p class="text-center text-lg text-neutral-dark mb-12 max-w-2xl mx-auto">
+      Our diverse team of licensed professionals is committed to providing compassionate, 
+      evidence-based care to support your journey toward wellness.
+    </p>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {teamMembers.map((member) => (
+        <a 
+          href={`/team/${member.slug}`}
+          class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow border border-gray-100"
+        >
+          <div class="w-32 h-32 bg-primary-light rounded-full mx-auto mb-4 flex items-center justify-center">
+            <span class="text-4xl text-primary font-heading font-bold">
+              {member.name.split(' ').map(n => n[0]).join('')}
+            </span>
+          </div>
+          <h2 class="text-xl font-heading font-semibold text-center mb-2 text-neutral-dark">
+            {member.name}
+          </h2>
+          <p class="text-sm text-center text-primary mb-4">{member.title}</p>
+          <p class="text-sm text-neutral-dark text-center line-clamp-3">{member.bio}</p>
+        </a>
+      ))}
+    </div>
+  </div>
+</BaseLayout>
+

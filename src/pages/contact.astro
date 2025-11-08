@@ -1,0 +1,111 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Contact Us" description="Contact Wright Wellness - Get in touch with our team.">
+  <div class="container mx-auto px-4 py-16">
+    <div class="max-w-4xl mx-auto">
+      <h1 class="text-4xl font-heading font-bold text-center mb-12 text-neutral-dark">Contact Us</h1>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Contact Information -->
+        <div>
+          <h2 class="text-2xl font-heading font-semibold mb-6 text-neutral-dark">Get in Touch</h2>
+          
+          <div class="space-y-6 mb-8">
+            <div>
+              <h3 class="font-heading font-semibold mb-2 text-neutral-dark">Address</h3>
+              <p class="text-neutral-dark">
+                1398 W. Mayfield Rd., Suite 220<br />
+                Arlington, TX 76015
+              </p>
+            </div>
+            
+            <div>
+              <h3 class="font-heading font-semibold mb-2 text-neutral-dark">Phone/Text & Fax*</h3>
+              <p class="text-neutral-dark">
+                Phone: <a href="tel:6827774325" class="text-primary hover:underline">682-777-4325</a><br />
+                Fax: 877-805-4720
+              </p>
+            </div>
+            
+            <div>
+              <h3 class="font-heading font-semibold mb-2 text-neutral-dark">Email**</h3>
+              <p class="text-neutral-dark">
+                <a href="mailto:office@wrightwellness.me" class="text-primary hover:underline">office@wrightwellness.me</a>
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Contact Form -->
+        <div>
+          <h2 class="text-2xl font-heading font-semibold mb-6 text-neutral-dark">Send us a Message</h2>
+          
+          <!-- TODO: Replace YOUR_FORM_ID with your actual Formspree form ID -->
+          <form 
+            action="https://formspree.io/f/YOUR_FORM_ID" 
+            method="POST"
+            class="space-y-4"
+          >
+            <div>
+              <label for="name" class="block text-sm font-semibold mb-2 text-neutral-dark">Name *</label>
+              <input 
+                type="text" 
+                id="name" 
+                name="name" 
+                required
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+              />
+            </div>
+            
+            <div>
+              <label for="email" class="block text-sm font-semibold mb-2 text-neutral-dark">Email *</label>
+              <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                required
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+              />
+            </div>
+            
+            <div>
+              <label for="phone" class="block text-sm font-semibold mb-2 text-neutral-dark">Phone</label>
+              <input 
+                type="tel" 
+                id="phone" 
+                name="phone"
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+              />
+            </div>
+            
+            <div>
+              <label for="message" class="block text-sm font-semibold mb-2 text-neutral-dark">Message *</label>
+              <textarea 
+                id="message" 
+                name="message" 
+                rows="5" 
+                required
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+              ></textarea>
+            </div>
+            
+            <button 
+              type="submit"
+              class="w-full bg-primary text-white px-6 py-3 rounded-lg font-body hover:bg-primary/90 transition-colors"
+            >
+              Send Message
+            </button>
+          </form>
+          
+          <p class="text-sm text-gray-600 mt-4">
+            * Required fields<br />
+            ** Please note: Email is not secure for sensitive information. For urgent matters, please call us.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+

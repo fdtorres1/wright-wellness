@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Patient Forms" description="Download patient forms and documents for Wright Wellness.">
+  <div class="container mx-auto px-4 py-16">
+    <div class="max-w-3xl mx-auto">
+      <h1 class="text-4xl font-heading font-bold text-center mb-6 text-neutral-dark">Patient Forms</h1>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        <a 
+          href="/forms/english"
+          class="bg-primary-light/20 p-8 rounded-lg hover:shadow-lg transition-shadow text-center"
+        >
+          <h2 class="text-2xl font-heading font-semibold mb-4 text-neutral-dark">English Forms</h2>
+          <p class="text-neutral-dark mb-4">
+            Notice of Privacy Practices, New Patient Packets, and more.
+          </p>
+          <span class="text-primary hover:underline font-semibold">View Forms →</span>
+        </a>
+        
+        <a 
+          href="/forms/espanol"
+          class="bg-primary-light/20 p-8 rounded-lg hover:shadow-lg transition-shadow text-center"
+        >
+          <h2 class="text-2xl font-heading font-semibold mb-4 text-neutral-dark">Formularios (Español)</h2>
+          <p class="text-neutral-dark mb-4">
+            Autorización, Consentimiento de Telesalud, y más.
+          </p>
+          <span class="text-primary hover:underline font-semibold">Ver Formularios →</span>
+        </a>
+      </div>
+      
+      <div class="bg-blue-50 border-l-4 border-blue-400 p-4">
+        <p class="text-neutral-dark">
+          <strong>Note:</strong> For fastest processing, use the <strong>Client Portal</strong> invite when available.
+        </p>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+

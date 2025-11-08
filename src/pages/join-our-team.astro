@@ -1,0 +1,150 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Join Our Team" description="Join the Wright Wellness team - Career opportunities for licensed counselors and psychologists.">
+  <div class="container mx-auto px-4 py-16">
+    <div class="max-w-3xl mx-auto">
+      <h1 class="text-4xl font-heading font-bold mb-6 text-neutral-dark">Join Our Team</h1>
+      
+      <div class="prose prose-lg max-w-none mb-8">
+        <p class="text-neutral-dark text-lg leading-relaxed mb-6">
+          We're looking for passionate, dedicated mental health professionals to join our team. 
+          At Wright Wellness, we value collaboration, growth, and providing exceptional care to our community.
+        </p>
+        
+        <div class="bg-primary-light/20 p-6 rounded-lg mb-8">
+          <h2 class="text-2xl font-heading font-semibold mb-4 text-neutral-dark">Benefits</h2>
+          <ul class="list-disc list-inside text-neutral-dark space-y-2">
+            <li>W2 status</li>
+            <li>Competitive reimbursement</li>
+            <li>Administrative and billing support</li>
+            <li>Employee massage program</li>
+            <li>Consultation and supervision</li>
+            <li>Psychology Today ad reimbursement</li>
+            <li>Book club</li>
+            <li>Team-building activities</li>
+          </ul>
+        </div>
+        
+        <div class="bg-primary-light/20 p-6 rounded-lg mb-8">
+          <h2 class="text-2xl font-heading font-semibold mb-4 text-neutral-dark">Open Positions</h2>
+          <ul class="list-disc list-inside text-neutral-dark space-y-2">
+            <li><strong>Licensed Counselor/Therapist</strong></li>
+            <li><strong>Licensed Psychologist</strong></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="bg-white border-2 border-primary p-6 rounded-lg mb-8">
+        <h2 class="text-2xl font-heading font-semibold mb-4 text-neutral-dark">Application Form</h2>
+        <!-- TODO: Replace YOUR_FORM_ID with your actual Formspree form ID -->
+        <form 
+          action="https://formspree.io/f/YOUR_FORM_ID" 
+          method="POST"
+          class="space-y-4"
+        >
+          <div>
+            <label for="name" class="block text-sm font-semibold mb-2 text-neutral-dark">Full Name *</label>
+            <input 
+              type="text" 
+              id="name" 
+              name="name" 
+              required
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+            />
+          </div>
+          
+          <div>
+            <label for="email" class="block text-sm font-semibold mb-2 text-neutral-dark">Email *</label>
+            <input 
+              type="email" 
+              id="email" 
+              name="email" 
+              required
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+            />
+          </div>
+          
+          <div>
+            <label for="phone" class="block text-sm font-semibold mb-2 text-neutral-dark">Phone *</label>
+            <input 
+              type="tel" 
+              id="phone" 
+              name="phone" 
+              required
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+            />
+          </div>
+          
+          <div>
+            <label for="license" class="block text-sm font-semibold mb-2 text-neutral-dark">License Type *</label>
+            <select 
+              id="license" 
+              name="license" 
+              required
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+            >
+              <option value="">Select license type</option>
+              <option value="LPC">Licensed Professional Counselor (LPC)</option>
+              <option value="LPC-Associate">LPC Associate</option>
+              <option value="Psychologist">Licensed Psychologist</option>
+              <option value="LMFT">Licensed Marriage and Family Therapist (LMFT)</option>
+              <option value="LMFT-Associate">LMFT Associate</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          
+          <div>
+            <label for="experience" class="block text-sm font-semibold mb-2 text-neutral-dark">Years of Experience</label>
+            <input 
+              type="number" 
+              id="experience" 
+              name="experience" 
+              min="0"
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+            />
+          </div>
+          
+          <div>
+            <label for="cover-letter" class="block text-sm font-semibold mb-2 text-neutral-dark">Cover Letter / Why you're interested *</label>
+            <textarea 
+              id="cover-letter" 
+              name="cover-letter" 
+              rows="6" 
+              required
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+            ></textarea>
+          </div>
+          
+          <div>
+            <label for="resume" class="block text-sm font-semibold mb-2 text-neutral-dark">Resume/CV</label>
+            <input 
+              type="file" 
+              id="resume" 
+              name="resume" 
+              accept=".pdf,.doc,.docx"
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+            />
+            <p class="text-sm text-gray-600 mt-1">PDF, DOC, or DOCX format</p>
+          </div>
+          
+          <button 
+            type="submit"
+            class="w-full bg-primary text-white px-6 py-3 rounded-lg font-body hover:bg-primary/90 transition-colors"
+          >
+            Submit Application
+          </button>
+        </form>
+      </div>
+      
+      <div class="mt-8">
+        <p class="text-neutral-dark">
+          Questions? Contact us at <a href="mailto:office@wrightwellness.me" class="text-primary hover:underline">office@wrightwellness.me</a> 
+          or <a href="tel:6827774325" class="text-primary hover:underline">682-777-4325</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+

@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { teamMembers } from '../../data/team';
+
+export async function getStaticPaths() {
+  return teamMembers.map((member) => ({
+    params: { slug: member.slug },
+    props: { member },
+  }));
+}
+
+const { member } = Astro.props;
+---
+
+<BaseLayout title={member.name} description={`${member.name} - ${member.title} at Wright Wellness`}>
+  <div class="container mx-auto px-4 py-16">
+    <div class="max-w-3xl mx-auto">
+      <div class="flex flex-col md:flex-row items-center md:items-start gap-8 mb-8">
+        <div class="w-48 h-48 bg-primary-light rounded-full flex items-center justify-center flex-shrink-0">
+          <span class="text-6xl text-primary font-heading font-bold">
+            {member.name.split(' ').map(n => n[0]).join('')}
+          </span>
+        </div>
+        <div class="text-center md:text-left">
+          <h1 class="text-4xl font-heading font-bold mb-2 text-neutral-dark">{member.name}</h1>
+          <p class="text-xl text-primary mb-4">{member.title}</p>
+        </div>
+      </div>
+      
+      <div class="prose prose-lg max-w-none">
+        <p class="text-neutral-dark text-lg leading-relaxed">{member.bio}</p>
+      </div>
+      
+      <div class="mt-8 pt-8 border-t border-gray-200">
+        <a href="/team" class="text-primary hover:underline font-semibold">← Back to Team</a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+

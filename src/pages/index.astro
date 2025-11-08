@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Home" description="Wright Wellness - Take a step today towards a healthier you. Counseling, Medication Management, Massage Therapy, Assessment & Testing, and Yoga services.">
+  <div class="relative">
+    <!-- Hero section with forest image -->
+    <div class="relative w-full h-[600px] md:h-[700px]">
+      <!-- Placeholder for forest image - replace with actual image -->
+      <div class="absolute inset-0 bg-gradient-to-b from-green-900 via-green-800 to-green-900">
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwMCIgaGVpZ2h0PSI3MDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEwMDAiIGhlaWdodD0iNzAwIiBmaWxsPSIjMTU2NTM1Ii8+PHRleHQgeD0iNTAwIiB5PSIzNTAiIGZvbnQtc2l6ZT0iMjQiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiI+Rm9yZXN0IEltYWdlIFBsYWNlaG9sZGVyPC90ZXh0Pjwvc3ZnPg==')] bg-cover bg-center opacity-80"></div>
+      </div>
+      <!-- Welcome text centered over image -->
+      <div class="relative h-full flex items-center justify-center">
+        <h1 class="text-6xl md:text-8xl font-heading font-bold text-white">
+          Welcome
+        </h1>
+      </div>
+    </div>
+
+    <!-- Content Section -->
+    <section class="bg-white py-16">
+      <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto">
+          <!-- Main heading -->
+          <h2 class="text-3xl md:text-4xl font-heading font-bold text-neutral-dark mb-6 text-center">
+            You are Weak. Shameful. Broken. Crazy.
+          </h2>
+          
+          <!-- Paragraph text -->
+          <p class="text-lg md:text-xl text-neutral-dark mb-8 text-center leading-relaxed">
+            These are common judgments when asking for help. What if that stigma changed, and asking for help became synonymous with <strong>STRENGTH, COURAGE, and ACCEPTANCE</strong>? What if we tried to be more <strong>UNDERSTANDING</strong> of others and <strong>KINDER</strong> to ourselves?
+          </p>
+          
+          <!-- Call to action -->
+          <p class="text-2xl md:text-3xl font-heading font-bold text-neutral-dark mb-8 text-center">
+            Take a step today towards a healthier you.
+          </p>
+          
+          <!-- Learn more button -->
+          <div class="text-center">
+            <a 
+              href="/services" 
+              class="inline-block bg-neutral-dark text-white px-8 py-4 rounded-md font-body hover:bg-neutral-dark/90 transition-colors text-lg"
+            >
+              Learn more
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
