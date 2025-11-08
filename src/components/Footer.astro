@@ -2,7 +2,7 @@
 ---
 
 <footer class="bg-black text-white py-8 mt-16">
-  <div class="container mx-auto px-4">
+  <div class="container mx-auto px-4 lg:px-8">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       <!-- Left Column: Company Name and Contact -->
       <div>
@@ -17,21 +17,18 @@
         </div>
       </div>
       
-      <!-- Middle Column: Latest Mind-FULL Words - Right Justified -->
-      <div class="text-right">
-        <h3 class="font-heading font-semibold mb-4 text-white">Latest Mind-FULL Words</h3>
-        <div class="text-sm text-white">
-          <div class="flex items-start justify-end gap-4">
-            <span class="text-gray-300 text-xs whitespace-nowrap">Jul 10, 2025</span>
-            <a href="/mind-full-content/emotional-regulation-through-bilateral-stimulation" class="hover:text-primary-light flex-1 text-right">
-              Emotional Regulation Through Bilateral Stimulation: A Case for Hobbies in Self-Care
-            </a>
-          </div>
+      <!-- Middle Column: Latest Mind-FULL Words - Left aligned text, positioned right -->
+      <div class="md:ml-auto md:max-w-md">
+        <h3 class="font-heading font-semibold mb-4 text-white text-left">Latest Mind-FULL Words</h3>
+        <div class="text-sm text-white text-left">
+          <a href="/mind-full-content/emotional-regulation-through-bilateral-stimulation" class="hover:text-primary-light block">
+            Emotional Regulation Through Bilateral Stimulation: A Case for Hobbies in Self-Care
+          </a>
         </div>
       </div>
       
       <!-- Right Column: Social Media Icons - Right Justified -->
-      <div class="flex items-start justify-end">
+      <div class="flex items-start justify-end md:justify-start">
         <div class="flex items-center space-x-4">
           <!-- Facebook icon -->
           <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="text-white hover:text-primary-light transition-colors">
