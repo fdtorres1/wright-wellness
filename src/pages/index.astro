@@ -6,9 +6,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <div class="relative">
     <!-- Hero section with forest image -->
     <div class="relative w-full h-[600px] md:h-[700px]">
-      <!-- Placeholder for forest image - replace with actual image -->
-      <div class="absolute inset-0 bg-gradient-to-b from-green-900 via-green-800 to-green-900">
-        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwMCIgaGVpZ2h0PSI3MDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEwMDAiIGhlaWdodD0iNzAwIiBmaWxsPSIjMTU2NTM1Ii8+PHRleHQgeD0iNTAwIiB5PSIzNTAiIGZvbnQtc2l6ZT0iMjQiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiI+Rm9yZXN0IEltYWdlIFBsYWNlaG9sZGVyPC90ZXh0Pjwvc3ZnPg==')] bg-cover bg-center opacity-80"></div>
+      <!-- Hero image -->
+      <div class="absolute inset-0">
+        <img 
+          src="/hero.webp" 
+          alt="Wright Wellness - Nature scene" 
+          class="w-full h-full object-cover"
+        />
       </div>
       <!-- Welcome text centered over image -->
       <div class="relative h-full flex items-center justify-center">
