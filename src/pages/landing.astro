@@ -1,0 +1,260 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Wright Wellness - Your Journey to Mental Health and Wellness" description="Wright Wellness PLLC offers comprehensive mental health services including counseling, medication management, massage therapy, and more. Take a step towards a healthier you.">
+  <div class="relative">
+    <!-- Hero section with forest image -->
+    <div class="relative w-full h-[600px] md:h-[700px]">
+      <!-- Hero image -->
+      <div class="absolute inset-0">
+        <img 
+          src="/hero.webp" 
+          alt="Wright Wellness - Nature scene" 
+          class="w-full h-full object-cover"
+        />
+      </div>
+      <!-- Dark overlay -->
+      <div class="absolute inset-0 bg-black/40"></div>
+      <!-- Welcome text centered over image -->
+      <div class="relative h-full flex items-center justify-center">
+        <div class="text-center px-4 max-w-4xl">
+          <h1 class="text-5xl md:text-7xl lg:text-8xl font-heading font-bold text-white mb-6">
+            Welcome to Wright Wellness
+          </h1>
+          <p class="text-xl md:text-2xl text-white mb-8 font-body">
+            Your trusted partner in mental health and wellness
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a 
+              href="/contact" 
+              class="inline-block bg-primary text-white px-8 py-4 rounded-md font-body hover:bg-primary/90 transition-colors text-lg font-semibold"
+            >
+              Schedule a Consultation
+            </a>
+            <a 
+              href="/services" 
+              class="inline-block bg-white text-neutral-dark px-8 py-4 rounded-md font-body hover:bg-gray-100 transition-colors text-lg font-semibold"
+            >
+              Learn About Our Services
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Value Proposition Section -->
+    <section class="bg-white py-16">
+      <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto text-center">
+          <h2 class="text-3xl md:text-4xl font-heading font-bold text-neutral-dark mb-6">
+            You are Weak. Shameful. Broken. Crazy.
+          </h2>
+          <p class="text-lg md:text-xl text-neutral-dark mb-8 leading-relaxed">
+            These are common judgments when asking for help. What if that stigma changed, and asking for help became synonymous with <strong>STRENGTH, COURAGE, and ACCEPTANCE</strong>? What if we tried to be more <strong>UNDERSTANDING</strong> of others and <strong>KINDER</strong> to ourselves?
+          </p>
+          <p class="text-2xl md:text-3xl font-heading font-bold text-neutral-dark mb-8">
+            Take a step today towards a healthier you.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Overview Section -->
+    <section class="bg-primary-light/10 py-16">
+      <div class="container mx-auto px-4">
+        <div class="max-w-6xl mx-auto">
+          <h2 class="text-3xl md:text-4xl font-heading font-bold text-center mb-12 text-neutral-dark">
+            Comprehensive Mental Health & Wellness Services
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+              <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center mb-4">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+              </div>
+              <h3 class="text-xl font-heading font-semibold mb-3 text-neutral-dark">Counseling Services</h3>
+              <p class="text-neutral-dark mb-4">Individual, couples, and family therapy with licensed professionals using evidence-based approaches.</p>
+              <a href="/services/counseling-services" class="text-primary hover:underline font-semibold">Learn more →</a>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+              <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center mb-4">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h3 class="text-xl font-heading font-semibold mb-3 text-neutral-dark">Medication Management</h3>
+              <p class="text-neutral-dark mb-4">Comprehensive evaluation and ongoing medication management for ages 12+ by licensed providers.</p>
+              <a href="/services/medication-management" class="text-primary hover:underline font-semibold">Learn more →</a>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+              <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center mb-4">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                </svg>
+              </div>
+              <h3 class="text-xl font-heading font-semibold mb-3 text-neutral-dark">Massage Therapy</h3>
+              <p class="text-neutral-dark mb-4">Therapeutic massage to support both mental and physical wellness and recovery.</p>
+              <a href="/services/massage-therapy" class="text-primary hover:underline font-semibold">Learn more →</a>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+              <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center mb-4">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                </svg>
+              </div>
+              <h3 class="text-xl font-heading font-semibold mb-3 text-neutral-dark">Assessment & Testing</h3>
+              <p class="text-neutral-dark mb-4">Comprehensive psychological assessments including ADHD, cognitive, and immigration evaluations.</p>
+              <a href="/services/assessment-testing" class="text-primary hover:underline font-semibold">Learn more →</a>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+              <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center mb-4">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h3 class="text-xl font-heading font-semibold mb-3 text-neutral-dark">Reduced Rate Services</h3>
+              <p class="text-neutral-dark mb-4">Affordable options starting at $65 per session. We believe quality care should be accessible.</p>
+              <a href="/services/reduced-rate" class="text-primary hover:underline font-semibold">Learn more →</a>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+              <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center mb-4">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+              </div>
+              <h3 class="text-xl font-heading font-semibold mb-3 text-neutral-dark">Expert Team</h3>
+              <p class="text-neutral-dark mb-4">Licensed psychologists, counselors, and therapists dedicated to your wellness journey.</p>
+              <a href="/team" class="text-primary hover:underline font-semibold">Meet our team →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="bg-white py-16">
+      <div class="container mx-auto px-4">
+        <div class="max-w-6xl mx-auto">
+          <h2 class="text-3xl md:text-4xl font-heading font-bold text-center mb-12 text-neutral-dark">
+            Why Choose Wright Wellness?
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="flex gap-4">
+              <div class="flex-shrink-0">
+                <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
+                  <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+              </div>
+              <div>
+                <h3 class="text-xl font-heading font-semibold mb-2 text-neutral-dark">Evidence-Based Approaches</h3>
+                <p class="text-neutral-dark">Our clinicians use proven therapeutic methods including CBT, ACT, DBT, and EMDR.</p>
+              </div>
+            </div>
+
+            <div class="flex gap-4">
+              <div class="flex-shrink-0">
+                <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
+                  <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                  </svg>
+                </div>
+              </div>
+              <div>
+                <h3 class="text-xl font-heading font-semibold mb-2 text-neutral-dark">Diverse & Inclusive</h3>
+                <p class="text-neutral-dark">Bilingual services available. We welcome clients from all backgrounds and communities.</p>
+              </div>
+            </div>
+
+            <div class="flex gap-4">
+              <div class="flex-shrink-0">
+                <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
+                  <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  </svg>
+                </div>
+              </div>
+              <div>
+                <h3 class="text-xl font-heading font-semibold mb-2 text-neutral-dark">Safe & Confidential</h3>
+                <p class="text-neutral-dark">Your privacy is paramount. We maintain the highest standards of confidentiality and HIPAA compliance.</p>
+              </div>
+            </div>
+
+            <div class="flex gap-4">
+              <div class="flex-shrink-0">
+                <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
+                  <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+              </div>
+              <div>
+                <h3 class="text-xl font-heading font-semibold mb-2 text-neutral-dark">Flexible Options</h3>
+                <p class="text-neutral-dark">In-person and telehealth appointments available. Reduced-rate services for those in need.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="bg-primary py-16">
+      <div class="container mx-auto px-4">
+        <div class="max-w-3xl mx-auto text-center">
+          <h2 class="text-3xl md:text-4xl font-heading font-bold text-white mb-6">
+            Ready to Begin Your Journey?
+          </h2>
+          <p class="text-xl text-white mb-8">
+            Take the first step towards better mental health and wellness today.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a 
+              href="/contact" 
+              class="inline-block bg-white text-primary px-8 py-4 rounded-md font-body hover:bg-gray-100 transition-colors text-lg font-semibold"
+            >
+              Contact Us
+            </a>
+            <a 
+              href="/services" 
+              class="inline-block bg-secondary text-white px-8 py-4 rounded-md font-body hover:bg-secondary/90 transition-colors text-lg font-semibold"
+            >
+              View All Services
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust Indicators -->
+    <section class="bg-white py-12 border-t border-gray-200">
+      <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <div>
+              <p class="text-3xl font-heading font-bold text-primary mb-2">16+</p>
+              <p class="text-neutral-dark">Licensed Professionals</p>
+            </div>
+            <div>
+              <p class="text-3xl font-heading font-bold text-primary mb-2">100%</p>
+              <p class="text-neutral-dark">Free Programming</p>
+            </div>
+            <div>
+              <p class="text-3xl font-heading font-bold text-primary mb-2">BIPOC</p>
+              <p class="text-neutral-dark">Led Organization</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
