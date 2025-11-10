@@ -1,0 +1,318 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { teamMembers } from '../../../src/data/team.ts';
+---
+
+<BaseLayout title="Our Team" description="Meet the compassionate team at Wright Wellness dedicated to your mental health and wellness.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --brand-green: #7FAE5A;
+      --brand-purple: #7D4698;
+      --accent-olive: #B7C98A;
+      --ink: #222;
+      --muted: #6b7280;
+      --bg: #fff;
+      --card: #f8fafc;
+      --line: #e5e7eb;
+      --radius: 14px;
+      --shadow: 0 10px 30px rgba(0,0,0,.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    .wrap {
+      max-width: 1200px;
+      margin-inline: auto;
+      padding: 0 20px;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      background: var(--bg);
+      border-bottom: 1px solid var(--line);
+      z-index: 50;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand a {
+      display: flex;
+      align-items: center;
+    }
+
+    .brand img {
+      height: 40px;
+      object-fit: contain;
+    }
+
+    nav ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .cta {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 16px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      background: var(--card);
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .btn.primary {
+      background: var(--brand-green);
+      color: #0b1a0b;
+    }
+
+    .grid {
+      display: grid;
+      gap: 24px;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 15px 40px rgba(0,0,0,.12);
+    }
+
+    .card h3 {
+      margin: 0 0 8px;
+      font-size: 20px;
+      color: var(--ink);
+    }
+
+    .card .title {
+      color: var(--brand-purple);
+      font-size: 14px;
+      font-weight: 600;
+      margin: 0 0 12px;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    section {
+      padding: 64px 0;
+    }
+
+    section h1 {
+      font-size: 36px;
+      margin: 0 0 12px;
+      text-align: center;
+    }
+
+    section p.sub {
+      color: var(--muted);
+      margin: 0 0 48px;
+      text-align: center;
+      font-size: 18px;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 40px 0;
+      color: var(--muted);
+      background: var(--card);
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 32px;
+      margin-bottom: 24px;
+    }
+
+    .footer-section h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--ink);
+      margin: 0 0 12px;
+    }
+
+    .footer-section p,
+    .footer-section a {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+      margin: 4px 0;
+    }
+
+    .footer-section a:hover {
+      color: var(--brand-purple);
+    }
+
+    .footer-nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .footer-nav li {
+      margin: 0;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--line);
+      padding-top: 24px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    a {
+      color: var(--brand-purple);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+
+  <header>
+    <div class="wrap topbar" role="navigation" aria-label="Primary">
+      <div class="brand">
+        <a href="/">
+          <img
+            src="/logo.jpg"
+            alt="Wright Wellness"
+            class="h-10 object-contain"
+          />
+        </a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="/#services">Services</a></li>
+          <li><a href="/team">Team</a></li>
+          <li><a href="/#forms">Forms</a></li>
+          <li><a href="/#content">Mind‑FULL</a></li>
+          <li><a href="https://wrightwellness.clientsecure.me/" target="_blank" rel="noopener">Client Portal</a></li>
+        </ul>
+      </nav>
+      <div class="cta">
+        <a class="btn primary" href="https://wrightwellness.clientsecure.me/" target="_blank" rel="noopener">Request an Appointment</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="wrap">
+        <h1>Our Team</h1>
+        <p class="sub">Our diverse team of licensed professionals is committed to providing compassionate, evidence-based care to support your journey toward wellness.</p>
+        
+        <div class="grid">
+          {teamMembers.map((member) => (
+            <div class="card">
+              <h3>{member.name}</h3>
+              <p class="title">{member.title}</p>
+              <p>{member.bio}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap" role="contentinfo">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div style="margin-bottom:12px">
+            <strong style="color:var(--ink)">Wright Wellness PLLC</strong>
+          </div>
+          <p>We believe reaching out is an act of courage. We're here to help you take the next step.</p>
+        </div>
+
+        <div class="footer-section">
+          <h3>Contact</h3>
+          <p>1398 W. Mayfield Rd., Suite 220</p>
+          <p>Arlington, TX 76015</p>
+          <p><a href="tel:+16827774325">682‑777‑4325</a></p>
+          <p><a href="mailto:office@wrightwellness.me">office@wrightwellness.me</a></p>
+        </div>
+
+        <div class="footer-section footer-nav">
+          <h3>Navigation</h3>
+          <ul>
+            <li><a href="/#services">Services</a></li>
+            <li><a href="/team">Team</a></li>
+            <li><a href="/#forms">Forms</a></li>
+            <li><a href="/#content">Mind‑FULL Content</a></li>
+            <li><a href="https://wrightwellness.clientsecure.me/" target="_blank" rel="noopener">Client Portal</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <small>
+          © {new Date().getFullYear()} Wright Wellness PLLC. The information on this site is not a substitute for professional care. 
+          If you are in crisis, call 988 or your local emergency number.
+        </small>
+      </div>
+    </div>
+  </footer>
+</BaseLayout>
+
