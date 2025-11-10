@@ -1,23 +1,44 @@
 # Wright Wellness Website
 
-A modern, responsive website for Wright Wellness PLLC, built with [Astro](https://astro.build), [Tailwind CSS](https://tailwindcss.com), and TypeScript.
+Official website for Wright Wellness PLLC - a mental health and wellness practice in Arlington, Texas.
 
-## 🌐 Live Site
+## 📋 Project Overview
 
-Visit [wrightwellness.me](https://wrightwellness.me)
+This repository contains two versions of the Wright Wellness website:
+
+1. **Main Site** (Root directory) - Traditional rebuild matching the current live site
+2. **Alternate Site** (`/alternate` folder) - Modern redesign with new landing page
+
+Both sites are built with:
+- **Astro** - Static site generator
+- **Tailwind CSS** - Utility-first CSS framework
+- **TypeScript** - Type-safe JavaScript
 
 ## 🚀 Getting Started
 
 ### Prerequisites
 
-- Node.js 18+ and npm (or yarn/pnpm)
+- Node.js 18+ and npm
 
-### Installation
+### Main Site
 
-1. Clone the repository:
+1. Install dependencies:
 ```bash
-git clone https://github.com/fdtorres1/wright-wellness.git
-cd wright-wellness
+npm install
+```
+
+2. Start the development server:
+```bash
+npm run dev
+```
+
+3. Open [http://localhost:4322](http://localhost:4322) in your browser.
+
+### Alternate Site
+
+1. Navigate to the alternate directory:
+```bash
+cd alternate
 ```
 
 2. Install dependencies:
@@ -30,124 +51,108 @@ npm install
 npm run dev
 ```
 
-4. Open [http://localhost:4322](http://localhost:4322) in your browser.
+4. Open [http://localhost:4323](http://localhost:4323) in your browser.
 
 ## 📦 Build
 
-To build the site for production:
-
+### Main Site
 ```bash
 npm run build
 ```
 
-The built files will be in the `dist/` directory.
-
-To preview the production build locally:
-
+### Alternate Site
 ```bash
-npm run preview
+cd alternate
+npm run build
 ```
+
+Built files will be in the `dist/` directory for each project.
 
 ## 🚢 Deployment
 
-This site is configured for deployment on [Vercel](https://vercel.com). Simply connect your GitHub repository to Vercel and it will automatically build and deploy.
+Both sites are configured for deployment on Vercel. Simply connect your repository to Vercel and it will automatically build and deploy.
 
-### Manual Deployment
+### Main Site
+- Deploy from root directory
+- Port: 4322 (development)
 
-1. Build the project: `npm run build`
-2. Deploy the `dist/` directory to your hosting provider
+### Alternate Site
+- Deploy from `/alternate` directory
+- Port: 4323 (development)
 
 ## 📁 Project Structure
 
+### Main Site (Root)
 ```
-/
-├── public/
-│   ├── favicon.svg
-│   └── logo.jpg
+wright_wellness/
 ├── src/
-│   ├── components/
-│   │   ├── Header.astro
-│   │   ├── Navigation.astro
-│   │   ├── Footer.astro
-│   │   └── Logo.astro
-│   ├── data/
-│   │   └── team.ts
-│   ├── layouts/
-│   │   └── BaseLayout.astro
-│   ├── pages/
-│   │   ├── index.astro
-│   │   ├── contact.astro
-│   │   ├── join-our-team.astro
-│   │   ├── team/
-│   │   ├── services/
-│   │   └── forms/
-│   └── styles/
-│       └── global.css
-├── astro.config.mjs
-├── tailwind.config.mjs
-├── tsconfig.json
-└── package.json
+│   ├── components/     # Reusable components (Header, Footer, Logo, Navigation)
+│   ├── layouts/        # Page layouts
+│   ├── pages/          # Site pages
+│   └── styles/         # Global styles
+├── public/             # Static assets (images, logos)
+├── package.json
+└── README.md
+```
+
+### Alternate Site
+```
+alternate/
+├── src/
+│   ├── components/     # Reusable components
+│   ├── layouts/       # Page layouts
+│   ├── pages/         # Site pages
+│   └── styles/        # Global styles
+├── public/            # Static assets
+├── package.json
+└── README.md
 ```
 
 ## 🎨 Brand Colors
 
 - **Primary Green**: `#7FAE5A`
+- **Primary Light**: `#B7C98A`
 - **Secondary Purple**: `#7D4698`
-- **Accent Olive**: `#B7C98A`
 - **Neutral Dark**: `#333333`
 - **Neutral Light**: `#FFFFFF`
 
-## 🔤 Typography
+## 📝 Forms
 
-- **Headings**: Poppins (geometric sans-serif)
-- **Body**: Inter (clean, readable sans-serif)
-- **System Font Fallbacks**: Included for optimal performance
+Contact forms use Formspree. Update the form IDs in:
+- `src/pages/contact.astro`
+- `src/pages/join-our-team.astro`
+- `alternate/src/pages/index.astro` (if contact form is added)
 
-## 📝 Configuration
+Replace `YOUR_FORM_ID` with your actual Formspree form ID.
 
-### Form Setup
+## 🔗 Important Links
 
-The contact form and job application form use [Formspree](https://formspree.io). To configure:
+- **Client Portal**: https://wrightwellness.clientsecure.me/
+- **Email**: office@wrightwellness.me
+- **Phone**: 682-777-4325
+- **Address**: 1398 W. Mayfield Rd., Suite 220, Arlington, TX 76015
 
-1. Sign up for a free account at [Formspree.io](https://formspree.io)
-2. Create forms and get your form IDs
-3. Replace `YOUR_FORM_ID` in:
-   - `src/pages/contact.astro`
-   - `src/pages/join-our-team.astro`
+## 📄 Version History
 
-### Environment Variables
+See [CHANGELOG.md](./CHANGELOG.md) for detailed version history.
 
-No environment variables are currently required. All configuration is done through the codebase.
+## 📚 Documentation
 
-## 🛠️ Development
-
-### Available Scripts
-
-- `npm run dev` - Start development server on port 4322
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build locally
-- `npm run astro` - Run Astro CLI commands
-
-### Code Style
-
-- TypeScript strict mode enabled
-- Tailwind CSS for styling
-- Astro components for templating
-
-## 📄 License
-
-Copyright © 2025 Wright Wellness PLLC. All rights reserved.
+- [Brand Kit](./wright_wellness_brand_kit.md) - Design guidelines and brand identity
+- [CHANGELOG.md](./CHANGELOG.md) - Version history and changes
 
 ## 🤝 Contributing
 
-This is a private project for Wright Wellness PLLC. For questions or issues, please contact the development team.
+This is a private project for Wright Wellness PLLC. For changes or updates, please contact the development team.
 
 ## 📞 Support
 
-For website issues or questions:
-- Email: office@wrightwellness.me
-- Phone: 682-777-4325
+For technical issues or questions about the website, please contact the development team.
+
+## 📜 License
+
+Copyright © 2025 Wright Wellness PLLC. All rights reserved.
 
 ---
 
-Built with ❤️ using [Astro](https://astro.build)
+**Current Version**: 1.1.0

@@ -41,4 +41,24 @@ This site is configured for deployment on Vercel. Simply connect your repository
 - This is an alternate version with a modern landing page design
 - Runs on port 4323 (different from main site on 4322)
 - Separate from the main site rebuild - can be developed independently
+- Features a comprehensive landing page with:
+  - Hero section with reframed stigma messaging
+  - Service cards showcasing all offerings
+  - Team preview section
+  - Mind-FULL content preview
+  - Forms and Client Portal information
+  - Footer with contact information and navigation
 
+## 🎨 Design Features
+
+- Modern, clean design with CSS variables for theming
+- Responsive grid layouts
+- Card-based service sections
+- Integrated navigation and footer
+- Client Portal integration
+
+## 📄 Version
+
+**Current Version**: 1.1.0
+
+See the main [CHANGELOG.md](../CHANGELOG.md) for detailed version history.
