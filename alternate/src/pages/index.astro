@@ -246,8 +246,52 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     /* FOOTER */
     footer {
       border-top: 1px solid var(--line);
-      padding: 30px 0;
+      padding: 40px 0;
       color: var(--muted);
+      background: var(--card);
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 32px;
+      margin-bottom: 24px;
+    }
+
+    .footer-section h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--ink);
+      margin: 0 0 12px;
+    }
+
+    .footer-section p,
+    .footer-section a {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+      margin: 4px 0;
+    }
+
+    .footer-section a:hover {
+      color: var(--brand-purple);
+    }
+
+    .footer-nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .footer-nav li {
+      margin: 6px 0;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--line);
+      padding-top: 24px;
+      text-align: center;
+      font-size: 14px;
     }
 
     .sr-only {
@@ -303,7 +347,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </blockquote>
         <p class="lead">Take a step today toward a healthier you.</p>
         <div class="panel">
-          <a class="btn primary" href="#contact" aria-label="Request an Appointment">Request an Appointment</a>
+          <a class="btn primary" href="https://wrightwellness.clientsecure.me/" target="_blank" rel="noopener" aria-label="Request an Appointment">Request an Appointment</a>
           <a class="btn secondary" href="tel:+16827774325" aria-label="Call 682-777-4325">Call 682‑777‑4325</a>
           <a class="btn tertiary" href="#espanol" aria-label="Servicios en Español">Servicios en Español</a>
         </div>
@@ -476,63 +520,45 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </div>
     </section>
 
-    <!-- CONTACT -->
-    <section id="contact">
-      <div class="wrap">
-        <header>
-          <h2>Contact & Location</h2>
-          <p class="sub">We'll help you take the next step.</p>
-        </header>
-        <div class="grid cols-3">
-          <div class="card">
-            <h3>Call or Text</h3>
-            <p><a href="tel:+16827774325">682‑777‑4325</a></p>
-            <h3>Email</h3>
-            <p><a href="mailto:office@wrightwellness.me">office@wrightwellness.me</a></p>
-          </div>
-          <div class="card">
-            <h3>Address</h3>
-            <p>1398 W. Mayfield Rd., Suite 220<br>Arlington, TX 76015</p>
-            <a class="btn tertiary" href="https://maps.google.com/?q=1398+W+Mayfield+Rd+Suite+220+Arlington+TX+76015" target="_blank" rel="noopener">Directions →</a>
-          </div>
-          <form class="card" aria-label="Quick contact form" action="https://formspree.io/f/YOUR_FORM_ID" method="post">
-            <h3>Message us</h3>
-            <label>
-              <span class="sr-only">Name</span>
-              <input name="name" placeholder="Full name" required style="width:100%;padding:12px;border:1px solid var(--line);border-radius:10px;margin-bottom:10px;background:var(--bg);color:var(--ink)">
-            </label>
-            <label>
-              <span class="sr-only">Email</span>
-              <input type="email" name="email" placeholder="Email" required style="width:100%;padding:12px;border:1px solid var(--line);border-radius:10px;margin-bottom:10px;background:var(--bg);color:var(--ink)">
-            </label>
-            <label>
-              <span class="sr-only">Phone</span>
-              <input name="phone" placeholder="Phone (optional)" style="width:100%;padding:12px;border:1px solid var(--line);border-radius:10px;margin-bottom:10px;background:var(--bg);color:var(--ink)">
-            </label>
-            <label>
-              <span class="sr-only">Message</span>
-              <textarea name="message" placeholder="How can we help?" rows="4" required style="width:100%;padding:12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink)"></textarea>
-            </label>
-            <div style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap">
-              <button class="btn primary" type="submit">Send message</button>
-              <a class="btn tertiary" href="tel:+16827774325">Call instead</a>
-            </div>
-          </form>
-        </div>
-      </div>
-    </section>
   </main>
 
   <footer>
     <div class="wrap" role="contentinfo">
-      <div style="display:flex;gap:14px;align-items:center;margin-bottom:6px">
-        <div class="logo" aria-hidden="true" style="width:28px;height:28px">WW</div>
-        <strong>Wright Wellness</strong>
+      <div class="footer-content">
+        <div class="footer-section">
+          <div style="display:flex;gap:12px;align-items:center;margin-bottom:12px">
+            <div class="logo" aria-hidden="true" style="width:32px;height:32px">WW</div>
+            <strong style="color:var(--ink)">Wright Wellness</strong>
+          </div>
+          <p>We believe reaching out is an act of courage. We're here to help you take the next step.</p>
+        </div>
+
+        <div class="footer-section">
+          <h3>Contact</h3>
+          <p>1398 W. Mayfield Rd., Suite 220</p>
+          <p>Arlington, TX 76015</p>
+          <p><a href="tel:+16827774325">682‑777‑4325</a></p>
+          <p><a href="mailto:office@wrightwellness.me">office@wrightwellness.me</a></p>
+        </div>
+
+        <div class="footer-section footer-nav">
+          <h3>Navigation</h3>
+          <ul>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#team">Team</a></li>
+            <li><a href="#forms">Forms</a></li>
+            <li><a href="#content">Mind‑FULL Content</a></li>
+            <li><a href="https://wrightwellness.clientsecure.me/" target="_blank" rel="noopener">Client Portal</a></li>
+          </ul>
+        </div>
       </div>
-      <small>
-        © {new Date().getFullYear()} Wright Wellness PLLC. The information on this site is not a substitute for professional care. 
-        If you are in crisis, call 988 or your local emergency number.
-      </small>
+
+      <div class="footer-bottom">
+        <small>
+          © {new Date().getFullYear()} Wright Wellness PLLC. The information on this site is not a substitute for professional care. 
+          If you are in crisis, call 988 or your local emergency number.
+        </small>
+      </div>
     </div>
   </footer>
 
