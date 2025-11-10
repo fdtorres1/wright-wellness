@@ -135,10 +135,15 @@ import { teamMembers } from '../../data/team.ts';
     .card:hover {
       transform: translateY(-4px);
       box-shadow: 0 15px 40px rgba(0,0,0,.12);
+      text-decoration: none;
     }
 
     .card:hover h3 {
       color: var(--brand-purple);
+    }
+
+    .card a {
+      text-decoration: none;
     }
 
     .card h3 {
@@ -228,12 +233,12 @@ import { teamMembers } from '../../data/team.ts';
       font-size: 14px;
     }
 
-    a {
+    a:not(.card) {
       color: var(--brand-purple);
       text-decoration: none;
     }
 
-    a:hover {
+    a:not(.card):hover {
       text-decoration: underline;
     }
   </style>
