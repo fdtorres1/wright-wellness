@@ -1,0 +1,557 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Wright Wellness — Welcome" description="Warm, non‑judgmental counseling, medication management, assessment, massage therapy, and mind‑body care in Arlington, TX.">
+  <style>
+    :root {
+      --brand-green: #7FAE5A;
+      --brand-purple: #7D4698;
+      --accent-olive: #B7C98A;
+      --ink: #222;
+      --muted: #6b7280;
+      --bg: #fff;
+      --card: #f8fafc;
+      --line: #e5e7eb;
+      --radius: 14px;
+      --radius-sm: 10px;
+      --shadow: 0 10px 30px rgba(0,0,0,.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font: 16px/1.6 system-ui, -apple-system, 'Segoe UI', Roboto, Inter, Helvetica, Arial, sans-serif;
+    }
+
+    a {
+      color: var(--brand-purple);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .wrap {
+      max-width: 1200px;
+      margin-inline: auto;
+      padding: 0 20px;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      background: var(--bg);
+      border-bottom: 1px solid var(--line);
+      z-index: 50;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand .logo {
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--brand-green), var(--accent-olive));
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-weight: 700;
+    }
+
+    nav ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .cta {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 16px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      background: var(--card);
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .btn.primary {
+      background: var(--brand-green);
+      color: #0b1a0b;
+    }
+
+    .btn.secondary {
+      background: transparent;
+      border-color: var(--brand-purple);
+      color: var(--brand-purple);
+    }
+
+    .btn.tertiary {
+      background: transparent;
+      border-color: var(--line);
+      color: var(--ink);
+    }
+
+    .btn:hover {
+      filter: brightness(0.98);
+    }
+
+    /* HERO */
+    .hero {
+      padding: 64px 0 40px;
+      background: radial-gradient(1200px 400px at 50% -50%, rgba(127,174,90,.25), transparent 60%);
+    }
+
+    .hero .kicker {
+      color: var(--brand-purple);
+      font-weight: 700;
+      letter-spacing: .03em;
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 5vw, 56px);
+      line-height: 1.1;
+      margin: 10px 0 12px;
+    }
+
+    .hero p.lead {
+      font-size: clamp(18px, 2.1vw, 22px);
+      color: var(--muted);
+      margin: 0 0 18px;
+    }
+
+    .hero .panel {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    blockquote {
+      margin: 18px 0;
+      padding: 14px 16px;
+      border-left: 4px solid var(--brand-purple);
+      background: var(--card);
+      border-radius: var(--radius-sm);
+    }
+
+    blockquote p {
+      margin: 0;
+    }
+
+    /* GRID SECTIONS */
+    .grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .grid.cols-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .grid.cols-4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    @media (max-width: 1000px) {
+      .grid.cols-4 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 800px) {
+      .grid.cols-3 {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+      }
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .card h3 {
+      margin: 0 0 6px;
+      font-size: 20px;
+    }
+
+    .card p {
+      margin: 0 0 10px;
+      color: var(--muted);
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(127,174,90,.15);
+      color: #234522;
+      font-weight: 600;
+    }
+
+    section {
+      padding: 34px 0;
+    }
+
+    section header {
+      border: none;
+      position: static;
+    }
+
+    section h2 {
+      font-size: 28px;
+      margin: 0 0 6px;
+    }
+
+    section p.sub {
+      color: var(--muted);
+      margin: 0 0 16px;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 30px 0;
+      color: var(--muted);
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    input, textarea {
+      font-family: inherit;
+    }
+  </style>
+
+  <a class="sr-only" href="#main">Skip to content</a>
+
+  <header>
+    <div class="wrap topbar" role="navigation" aria-label="Primary">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">WW</div>
+        <strong>Wright Wellness</strong>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="#forms">Forms</a></li>
+          <li><a href="#content">Mind‑FULL</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="https://wrightwellness.clientsecure.me/" target="_blank" rel="noopener">Client Portal</a></li>
+        </ul>
+      </nav>
+      <div class="cta">
+        <a class="btn primary" href="#contact">Request an Appointment</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap">
+        <div class="kicker">Arlington, Texas • Counseling & Integrated Care</div>
+        <h1>Welcome. Asking for help is strength.</h1>
+        <blockquote aria-label="Reframing stigma">
+          <p><em>"You are Weak. Shameful. Broken. Crazy."</em><br>
+          We reject those labels. At Wright Wellness, asking for help is <strong>STRENGTH, COURAGE, and ACCEPTANCE</strong>—and a step toward understanding others and being kinder to ourselves.</p>
+        </blockquote>
+        <p class="lead">Take a step today toward a healthier you.</p>
+        <div class="panel">
+          <a class="btn primary" href="#contact" aria-label="Request an Appointment">Request an Appointment</a>
+          <a class="btn secondary" href="tel:+16827774325" aria-label="Call 682-777-4325">Call 682‑777‑4325</a>
+          <a class="btn tertiary" href="#espanol" aria-label="Servicios en Español">Servicios en Español</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUICK SERVICES -->
+    <section id="services">
+      <div class="wrap">
+        <header>
+          <h2>Care you can count on</h2>
+          <p class="sub">Whole‑person support from a compassionate, integrated team.</p>
+        </header>
+        <div class="grid cols-3">
+          <article class="card">
+            <div class="chip">Counseling & Psychotherapy</div>
+            <h3>Individual, Couples, Family</h3>
+            <p>Trauma‑informed, evidence‑based therapy. Telehealth options available; walk‑and‑talk when appropriate.</p>
+            <a href="/services/counseling-services">Start counseling →</a>
+          </article>
+
+          <article class="card">
+            <div class="chip">Medication Management</div>
+            <h3>Thoughtful, collaborative care (13+)</h3>
+            <p>Holistic evaluations with recommendations that may include therapy, movement, nutrition, and medication when indicated.</p>
+            <a href="/services/medication-management">Discuss options →</a>
+          </article>
+
+          <article class="card">
+            <div class="chip">Assessment & Testing</div>
+            <h3>ADHD, Cognitive & More</h3>
+            <p>Adult ADHD, cognitive/geriatric, intelligence, personality, pre‑surgical/medical, return‑to‑work, immigration, and developmental screenings.</p>
+            <a href="/services/assessment-testing">Request an assessment →</a>
+          </article>
+
+          <article class="card">
+            <div class="chip">Massage Therapy</div>
+            <h3>Therapeutic bodywork</h3>
+            <p>Support recovery, reduce stress, and reconnect body and mind. No‑tipping policy.</p>
+            <a href="/services/massage-therapy">Check availability →</a>
+          </article>
+
+          <article class="card">
+            <div class="chip">Yoga</div>
+            <h3>Mind‑body practices</h3>
+            <p>Currently paused. Check back for updates.</p>
+            <a href="/services/yoga">Ask about classes →</a>
+          </article>
+
+          <article class="card">
+            <div class="chip">Accessible Care</div>
+            <h3>Reduced Rate Options</h3>
+            <p>Reduced‑fee sessions available (as low as <strong>$65</strong>/session) with additional resources for affordability.</p>
+            <a href="/services/reduced-rate">Learn about fees →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY WW -->
+    <section>
+      <div class="wrap">
+        <header>
+          <h2>Why Wright Wellness</h2>
+          <p class="sub">Warm, non‑judgmental care backed by proven approaches.</p>
+        </header>
+        <div class="grid cols-3">
+          <div class="card">
+            <h3>Non‑judgmental & empowering</h3>
+            <p>Your story matters. We move at your pace and focus on what feels possible now.</p>
+          </div>
+          <div class="card">
+            <h3>Integrated team</h3>
+            <p>Psychologists, licensed counselors, psychiatric nurse practitioner, and therapeutic massage working together.</p>
+          </div>
+          <div class="card">
+            <h3>Whole‑person approach</h3>
+            <p>Skills, insight, habits—and medication when appropriate—to support lasting change.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEAM PREVIEW -->
+    <section id="team">
+      <div class="wrap">
+        <header>
+          <h2>Meet the team</h2>
+          <p class="sub">Compassionate professionals committed to your growth.</p>
+        </header>
+        <div class="grid cols-4">
+          <article class="card">
+            <h3>Dr. Lacey Wright, PsyD</h3>
+            <p>Trauma, depression, anxiety, women's wellness; CBT/ACT/MI; walk‑and‑talk when appropriate.</p>
+          </article>
+          <article class="card">
+            <h3>Karalee Landers‑Oliveira, PMHNP</h3>
+            <p>Medication management for adolescents and adults (13+).</p>
+          </article>
+          <article class="card">
+            <h3>Janelle Linares, LPC (EN/ES)</h3>
+            <p>Bilingual trauma‑informed care; telehealth available.</p>
+          </article>
+          <article class="card">
+            <h3>Ruth Bucher, LMT</h3>
+            <p>Therapeutic massage; pain, trauma recovery, neurological conditions.</p>
+          </article>
+        </div>
+        <div style="margin-top:12px">
+          <a class="btn tertiary" href="/team">See full team →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTENT PREVIEW -->
+    <section id="content">
+      <div class="wrap">
+        <header>
+          <h2>Mind‑FULL Reads & Words</h2>
+          <p class="sub">Short, practical posts you can use between sessions.</p>
+        </header>
+        <div class="grid cols-3">
+          <article class="card">
+            <h3>Why Talking Through Problems Can Make You Smarter</h3>
+            <p>Language doesn't have to be perfect to be powerful.</p>
+            <a href="/mind-full-content">Read more →</a>
+          </article>
+          <article class="card">
+            <h3>How to Resist the Urge to Fix Everything</h3>
+            <p>Relieve pressure and become more genuinely helpful.</p>
+            <a href="/mind-full-content">Read more →</a>
+          </article>
+          <article class="card">
+            <h3>Emotional Regulation Through Bilateral Stimulation</h3>
+            <p>Everyday hobbies that support the nervous system.</p>
+            <a href="/mind-full-content">Read more →</a>
+          </article>
+        </div>
+        <div style="margin-top:12px">
+          <a class="btn tertiary" href="/mind-full-content">View all Reads →</a>
+          <a class="btn tertiary" href="/mind-full-content" style="margin-left:8px">View all Words →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORMS / PORTAL -->
+    <section id="forms">
+      <div class="wrap">
+        <header>
+          <h2>Getting started</h2>
+          <p class="sub">Fastest onboarding: complete your paperwork in our secure portal.</p>
+        </header>
+        <div class="grid cols-3">
+          <article class="card">
+            <h3>Client Portal</h3>
+            <p>Schedule, messages, and secure intake paperwork in one place.</p>
+            <a href="https://wrightwellness.clientsecure.me/" target="_blank" rel="noopener">Open portal →</a>
+          </article>
+          <article class="card">
+            <h3>Forms (English)</h3>
+            <p>Downloadable packets, notices, and estimates if you prefer PDFs.</p>
+            <a href="/forms/english">View English forms →</a>
+          </article>
+          <article class="card" id="espanol">
+            <h3>Formularios (Español)</h3>
+            <p>Opciones en español para facilitar el proceso de registro.</p>
+            <a href="/forms/espanol">Ver formularios en español →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="wrap">
+        <header>
+          <h2>Contact & Location</h2>
+          <p class="sub">We'll help you take the next step.</p>
+        </header>
+        <div class="grid cols-3">
+          <div class="card">
+            <h3>Call or Text</h3>
+            <p><a href="tel:+16827774325">682‑777‑4325</a></p>
+            <h3>Email</h3>
+            <p><a href="mailto:office@wrightwellness.me">office@wrightwellness.me</a></p>
+          </div>
+          <div class="card">
+            <h3>Address</h3>
+            <p>1398 W. Mayfield Rd., Suite 220<br>Arlington, TX 76015</p>
+            <a class="btn tertiary" href="https://maps.google.com/?q=1398+W+Mayfield+Rd+Suite+220+Arlington+TX+76015" target="_blank" rel="noopener">Directions →</a>
+          </div>
+          <form class="card" aria-label="Quick contact form" action="https://formspree.io/f/YOUR_FORM_ID" method="post">
+            <h3>Message us</h3>
+            <label>
+              <span class="sr-only">Name</span>
+              <input name="name" placeholder="Full name" required style="width:100%;padding:12px;border:1px solid var(--line);border-radius:10px;margin-bottom:10px;background:var(--bg);color:var(--ink)">
+            </label>
+            <label>
+              <span class="sr-only">Email</span>
+              <input type="email" name="email" placeholder="Email" required style="width:100%;padding:12px;border:1px solid var(--line);border-radius:10px;margin-bottom:10px;background:var(--bg);color:var(--ink)">
+            </label>
+            <label>
+              <span class="sr-only">Phone</span>
+              <input name="phone" placeholder="Phone (optional)" style="width:100%;padding:12px;border:1px solid var(--line);border-radius:10px;margin-bottom:10px;background:var(--bg);color:var(--ink)">
+            </label>
+            <label>
+              <span class="sr-only">Message</span>
+              <textarea name="message" placeholder="How can we help?" rows="4" required style="width:100%;padding:12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink)"></textarea>
+            </label>
+            <div style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap">
+              <button class="btn primary" type="submit">Send message</button>
+              <a class="btn tertiary" href="tel:+16827774325">Call instead</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap" role="contentinfo">
+      <div style="display:flex;gap:14px;align-items:center;margin-bottom:6px">
+        <div class="logo" aria-hidden="true" style="width:28px;height:28px">WW</div>
+        <strong>Wright Wellness</strong>
+      </div>
+      <small>
+        © {new Date().getFullYear()} Wright Wellness PLLC. The information on this site is not a substitute for professional care. 
+        If you are in crisis, call 988 or your local emergency number.
+      </small>
+    </div>
+  </footer>
+
+  <!-- JSON-LD for local business -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "MedicalClinic",
+    "name": "Wright Wellness",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "1398 W. Mayfield Rd., Suite 220",
+      "addressLocality": "Arlington",
+      "addressRegion": "TX",
+      "postalCode": "76015",
+      "addressCountry": "US"
+    },
+    "telephone": "+1-682-777-4325",
+    "url": "https://wrightwellness.me",
+    "medicalSpecialty": "Psychiatric"
+  })} />
+</BaseLayout>
+
