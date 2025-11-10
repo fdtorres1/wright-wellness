@@ -1,5 +1,27 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+// Team members data
+const teamMembers = [
+  { name: 'Dr. Lacey Wright, PsyD', description: "Trauma, depression, anxiety, women's wellness; CBT/ACT/MI; walk‑and‑talk when appropriate." },
+  { name: 'Karalee Landers‑Oliveira, PMHNP', description: 'Medication management for adolescents and adults (13+).' },
+  { name: 'Janelle Linares, LPC (EN/ES)', description: 'Bilingual trauma‑informed care; telehealth available.' },
+  { name: 'Ruth Bucher, LMT', description: 'Therapeutic massage; pain, trauma recovery, neurological conditions.' },
+];
+
+// Shuffle team members but keep Lacey Wright first
+const shuffledTeam = (() => {
+  const lacey = teamMembers[0];
+  const others = teamMembers.slice(1);
+  
+  // Fisher-Yates shuffle for the remaining members
+  for (let i = others.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [others[i], others[j]] = [others[j], others[i]];
+  }
+  
+  return [lacey, ...others];
+})();
 ---
 
 <BaseLayout title="Wright Wellness — Welcome" description="Warm, non‑judgmental counseling, medication management, assessment, massage therapy, and mind‑body care in Arlington, TX.">
@@ -456,22 +478,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <p class="sub">Compassionate professionals committed to your growth.</p>
         </header>
         <div class="grid cols-4">
-          <article class="card">
-            <h3>Dr. Lacey Wright, PsyD</h3>
-            <p>Trauma, depression, anxiety, women's wellness; CBT/ACT/MI; walk‑and‑talk when appropriate.</p>
-          </article>
-          <article class="card">
-            <h3>Karalee Landers‑Oliveira, PMHNP</h3>
-            <p>Medication management for adolescents and adults (13+).</p>
-          </article>
-          <article class="card">
-            <h3>Janelle Linares, LPC (EN/ES)</h3>
-            <p>Bilingual trauma‑informed care; telehealth available.</p>
-          </article>
-          <article class="card">
-            <h3>Ruth Bucher, LMT</h3>
-            <p>Therapeutic massage; pain, trauma recovery, neurological conditions.</p>
-          </article>
+          {shuffledTeam.map((member) => (
+            <article class="card">
+              <h3>{member.name}</h3>
+              <p>{member.description}</p>
+            </article>
+          ))}
         </div>
         <div style="margin-top:12px">
           <a class="btn tertiary" href="/team">See full team →</a>
