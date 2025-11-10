@@ -66,15 +66,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       gap: 12px;
     }
 
-    .brand .logo {
-      width: 36px;
-      height: 36px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, var(--brand-green), var(--accent-olive));
-      display: grid;
-      place-items: center;
-      color: #fff;
-      font-weight: 700;
+    .brand img {
+      height: 40px;
+      object-fit: contain;
     }
 
     nav ul {
@@ -316,8 +310,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <header>
     <div class="wrap topbar" role="navigation" aria-label="Primary">
       <div class="brand">
-        <div class="logo" aria-hidden="true">WW</div>
-        <strong>Wright Wellness</strong>
+        <a href="/" class="flex items-center">
+          <img
+            src="/logo.jpg"
+            alt="Wright Wellness"
+            class="h-10 object-contain"
+          />
+        </a>
       </div>
       <nav>
         <ul>
@@ -525,9 +524,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <div class="wrap" role="contentinfo">
       <div class="footer-content">
         <div class="footer-section">
-          <div style="display:flex;gap:12px;align-items:center;margin-bottom:12px">
-            <div class="logo" aria-hidden="true" style="width:32px;height:32px">WW</div>
-            <strong style="color:var(--ink)">Wright Wellness</strong>
+          <div style="margin-bottom:12px">
+            <strong style="color:var(--ink)">Wright Wellness PLLC</strong>
           </div>
           <p>We believe reaching out is an act of courage. We're here to help you take the next step.</p>
         </div>
