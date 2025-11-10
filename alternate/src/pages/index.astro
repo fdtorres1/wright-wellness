@@ -1,27 +1,40 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { teamMembers as allTeamMembers } from '../../src/data/team.ts';
 
-// Team members data
-const teamMembers = [
-  { name: 'Dr. Lacey Wright, PsyD', description: "Trauma, depression, anxiety, women's wellness; CBT/ACT/MI; walk‑and‑talk when appropriate." },
-  { name: 'Karalee Landers‑Oliveira, PMHNP', description: 'Medication management for adolescents and adults (13+).' },
-  { name: 'Janelle Linares, LPC (EN/ES)', description: 'Bilingual trauma‑informed care; telehealth available.' },
-  { name: 'Ruth Bucher, LMT', description: 'Therapeutic massage; pain, trauma recovery, neurological conditions.' },
-];
+// Find Lacey Wright and separate her from others
+const laceyWright = allTeamMembers.find(member => 
+  member.name.toLowerCase().includes('lacey wright')
+) || allTeamMembers[0];
 
-// Shuffle team members but keep Lacey Wright first
-const shuffledTeam = (() => {
-  const lacey = teamMembers[0];
-  const others = teamMembers.slice(1);
-  
-  // Fisher-Yates shuffle for the remaining members
-  for (let i = others.length - 1; i > 0; i--) {
+const otherMembers = allTeamMembers.filter(member => 
+  !member.name.toLowerCase().includes('lacey wright')
+);
+
+// Randomly select 3 other team members and shuffle them
+const getRandomMembers = (array: typeof otherMembers, count: number) => {
+  const shuffled = [...array];
+  // Fisher-Yates shuffle
+  for (let i = shuffled.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
-    [others[i], others[j]] = [others[j], others[i]];
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
   }
-  
-  return [lacey, ...others];
-})();
+  return shuffled.slice(0, count);
+};
+
+const selectedOthers = getRandomMembers(otherMembers, 3);
+
+// Format team members for display
+const shuffledTeam = [
+  {
+    name: laceyWright.name.includes('Dr.') ? laceyWright.name : `Dr. ${laceyWright.name}`,
+    description: laceyWright.bio
+  },
+  ...selectedOthers.map(member => ({
+    name: member.name,
+    description: member.bio
+  }))
+];
 ---
 
 <BaseLayout title="Wright Wellness — Welcome" description="Warm, non‑judgmental counseling, medication management, assessment, massage therapy, and mind‑body care in Arlington, TX.">
