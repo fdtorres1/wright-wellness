@@ -155,4 +155,4 @@ Copyright © 2025 Wright Wellness PLLC. All rights reserved.
 
 ---
 
-**Current Version**: 1.3.0
+**Current Version**: 1.3.1

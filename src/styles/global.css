@@ -301,3 +301,8 @@ blockquote p {
   border: 0;
 }
 
+/* Footer Social Links */
+footer a[href*="instagram"]:hover {
+  color: var(--brand-purple) !important;
+}
+

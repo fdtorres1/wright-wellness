@@ -43,6 +43,16 @@ const { member } = Astro.props;
               founded Wright Wellness in {member.foundedYear}
             </p>
           )}
+          {member.withWrightWellnessSince && (
+            <p class="text-neutral-dark text-base font-medium italic">
+              with Wright Wellness since {member.withWrightWellnessSince}
+            </p>
+          )}
+          {member.notAcceptingClients && (
+            <p class="text-red-600 text-sm font-semibold mt-2 italic">
+              Please note, {member.name} is not currently accepting new clients.
+            </p>
+          )}
         </div>
       </div>
 
@@ -71,7 +81,9 @@ const { member } = Astro.props;
               {member.specialSections.map((section) => (
                 <div class="bg-gradient-to-br from-primary-light/10 to-primary/5 rounded-lg p-6 border-l-4 border-primary">
                   <h3 class="text-xl font-heading font-bold text-neutral-dark mb-3">{section.title}</h3>
-                  <p class="text-neutral-dark text-lg leading-relaxed">{section.content}</p>
+                  <div class="text-neutral-dark text-lg leading-relaxed whitespace-pre-line">
+                    {section.content}
+                  </div>
                 </div>
               ))}
             </div>
@@ -81,6 +93,13 @@ const { member } = Astro.props;
         <!-- Right Column: Quick Info Sidebar -->
         <div class="lg:col-span-1">
           <div class="sticky top-24 space-y-6">
+            {member.notAcceptingClients && (
+              <div class="bg-red-50 border-l-4 border-red-500 rounded-lg p-4">
+                <p class="text-red-800 text-sm font-semibold">
+                  ⚠️ Not Currently Accepting New Clients
+                </p>
+              </div>
+            )}
             {member.specialties && member.specialties.length > 0 && (
               <div class="bg-white rounded-lg p-6 shadow-sm border border-gray-100">
                 <h2 class="text-xl font-heading font-semibold text-neutral-dark mb-4 flex items-center">

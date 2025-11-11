@@ -19,6 +19,8 @@ export interface TeamMember {
   fullBio?: string; // Full detailed bio content
   specialSections?: { title: string; content: string }[]; // Special sections like "WOMEN'S ISSUES", "MIND AND BODY"
   foundedYear?: number; // Year the practice was founded (for founders)
+  notAcceptingClients?: boolean; // Whether the clinician is currently accepting new clients
+  withWrightWellnessSince?: number; // Year the clinician joined Wright Wellness
 }
 
 export const teamMembers: TeamMember[] = [
@@ -82,7 +84,51 @@ I founded Wright Wellness to create a compassionate and supportive environment f
     name: "Dr. Dana Shafir",
     slug: "dr-dana-shafir-lpc",
     title: "LPC, CHC",
-    bio: "Doctoral-level LPC (TWU, 2005). Experience in varied settings; offers health coaching; focus on lifestyle and integrative approaches."
+    bio: "Doctoral-level LPC (TWU, 2005). Experience in varied settings; offers health coaching; focus on lifestyle and integrative approaches.",
+    image: "/team/dana-shafir.jpg",
+    specialties: [
+      "Depression",
+      "Anxiety",
+      "Women's Issues",
+      "Parenting",
+      "Premarital Counseling",
+      "Chronic Health Issues",
+      "Adjustment/Grief",
+      "Relationships",
+      "Health/Lifestyle Coaching",
+      "Body Image",
+      "Adolescents",
+      "Mind-Body Wellness"
+    ],
+    insurancePlans: [
+      "Blue Cross Blue Shield",
+      "Cigna/Evernorth"
+    ],
+    fees: [
+      { service: "Diagnostic Evaluation", price: "$165" },
+      { service: "Individual Psychotherapy Session (50-minute follow-up)", price: "$135" },
+      { service: "Family Psychotherapy — Initial Evaluation", price: "$175" },
+      { service: "Family Psychotherapy (50-minute follow-up)", price: "$145" }
+    ],
+    serviceDescription: "Dana Shafir, PhD, LPC, provides the following services to 13-years of age and older:",
+    serviceNotes: [
+      "*Dr. Shafir is also a Certified Health Coach and can incorporate health coaching concepts into her counseling sessions.",
+      "Let us know if you are interested in health coaching services!",
+      "*Telehealth Services also available"
+    ],
+    fullBio: `I am a doctoral-level licensed professional counselor. Since earning my doctorate in counseling psychology in 2005 from Texas Woman's University, I have had great opportunities working in a variety of settings, including university counseling centers, private schools, private practices, a children's hospital, and remote opportunities. I have had the honor of offering counseling services to individuals from a wide range of age groups, cultures, and backgrounds, who have sought therapy for just as wide a range of reasons. Through a compassionate, trauma-informed, person-centered, culturally-sensitive, and holistic lens, some of my own goals include "meeting" clients where they are psychologically, establishing healing therapeutic relationships, empowering and equipping them with healthy coping skills and psychoeducation, and reminding them that although I am a partner in their health journey, they are the true experts in their own lives. I consider my therapeutic approach to be highly integrative, and there are several approaches that inform much of my work. These include, but are not limited to, systems approach, cognitive-behavioral therapy, positive psychology, solution-focused therapy, as well as motivational interviewing and dialectical behavior techniques. My clinical interests, specialties, and experiences include adjustment issues, women's health, adolescents, relationships, parenting, health and wellness, body image concerns, chronic health conditions, and the integration of mind, body, and spirit.`,
+    specialSections: [
+      {
+        title: "HEALTH COACHING",
+        content: `In 2012, after working as a therapist for several years, I earned my health coaching certification through The Institute for Integrative Nutrition, and have since incorporated health and wellness coaching into my practice. My role as a health coach is to be your personal advocate for living a passionate and energized life, as well as to educate, empower, guide, and support you during your journey towards healthy living. Through a collaborative approach, we can equip you with positive habits and skills, in an effort to discover the food and lifestyle choices that best support you, all while guiding you towards a life that is flexible, fun, and free of deprivation and strictness. Making gradual, lasting changes will enable you to reach and, more importantly, maintain your current and future health goals. Whether you are reaching out to me in need of counseling services or health coaching needs, I am committed to your success!
+
+"Pay attention to your body. The point is everybody is different. You have to figure out what works for you." ~Andrew Weil
+
+"Health is a relationship between you and your body." ~Terry Guillemets`
+      }
+    ],
+    notAcceptingClients: true,
+    withWrightWellnessSince: 2019
   },
   {
     name: "Dr. Laura Ávila",

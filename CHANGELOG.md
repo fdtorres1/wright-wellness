@@ -5,6 +5,32 @@ All notable changes to the Wright Wellness website project will be documented in
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.1] - 2025-01-XX
+
+### Added
+- **Dr. Dana Shafir Profile Enhancement**: Complete profile update with comprehensive information
+  - Added 12 specialties (Depression, Anxiety, Women's Issues, Parenting, Premarital Counseling, Chronic Health Issues, Adjustment/Grief, Relationships, Health/Lifestyle Coaching, Body Image, Adolescents, Mind-Body Wellness)
+  - Added insurance plans (Blue Cross Blue Shield, Cigna/Evernorth)
+  - Added service fees (Diagnostic Evaluation $165, Individual Psychotherapy $135, Family Psychotherapy Initial $175, Family Psychotherapy Follow-up $145)
+  - Added full detailed bio content
+  - Added HEALTH COACHING special section with quotes from Andrew Weil and Terry Guillemets
+  - Added service notes about health coaching and telehealth availability
+  - Added headshot image (`/team/dana-shafir.jpg`)
+- **Team Member Status Fields**: New optional fields for team member profiles
+  - `notAcceptingClients`: Boolean flag to indicate when a clinician is not accepting new clients
+  - `withWrightWellnessSince`: Year the clinician joined Wright Wellness
+- **Instagram Social Link**: Added Instagram icon and link to footer
+  - Links to `https://instagram.com/wrightwellnesstx`
+  - Includes hover effect with brand purple color
+
+### Changed
+- **Team Page Styling**: Team member names now display in black (`var(--ink)`) for better visibility
+- **Team Bio Pages**: Enhanced to display "not accepting new clients" notices
+  - Red warning text in header section
+  - Prominent sidebar notice card for better visibility
+- **Team Bio Pages**: Added display for "with Wright Wellness since [year]" information
+- **Special Sections Rendering**: Improved to preserve line breaks and quotes using `whitespace-pre-line`
+
 ## [1.3.0] - 2025-01-XX
 
 ### Added
