@@ -3,48 +3,50 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout title="Services Overview" description="Comprehensive mental health and wellness services at Wright Wellness including counseling, medication management, massage therapy, and more.">
-  <div class="container mx-auto px-4 py-16">
-    <h1 class="text-4xl font-heading font-bold text-center mb-4 text-neutral-dark">Services Overview</h1>
-    <p class="text-center text-lg text-neutral-dark mb-12 max-w-2xl mx-auto">
-      We offer a comprehensive range of services to support your mental and physical wellness.
-    </p>
-    
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-      <div class="bg-primary-light/20 p-6 rounded-lg">
-        <h2 class="text-2xl font-heading font-semibold mb-3 text-neutral-dark">Counseling/Psychotherapy Services</h2>
-        <p class="text-neutral-dark mb-4">Individual, couples, and family counseling.</p>
-        <a href="/services/counseling-services" class="text-primary hover:underline font-semibold">Learn more →</a>
-      </div>
+  <section>
+    <div class="wrap">
+      <header>
+        <h1>Services Overview</h1>
+        <p class="sub">We offer a comprehensive range of services to support your mental and physical wellness.</p>
+      </header>
       
-      <div class="bg-primary-light/20 p-6 rounded-lg">
-        <h2 class="text-2xl font-heading font-semibold mb-3 text-neutral-dark">Massage Therapy Services</h2>
-        <p class="text-neutral-dark mb-4">Therapeutic massage to support mental and physical wellness.</p>
-        <a href="/services/massage-therapy" class="text-primary hover:underline font-semibold">Learn more →</a>
-      </div>
-      
-      <div class="bg-primary-light/20 p-6 rounded-lg">
-        <h2 class="text-2xl font-heading font-semibold mb-3 text-neutral-dark">Medication Management Services</h2>
-        <p class="text-neutral-dark mb-4">Evaluation and ongoing management for 12+ including depression, anxiety, ADHD, insomnia, and more.</p>
-        <a href="/services/medication-management" class="text-primary hover:underline font-semibold">Learn more →</a>
-      </div>
-      
-      <div class="bg-primary-light/20 p-6 rounded-lg">
-        <h2 class="text-2xl font-heading font-semibold mb-3 text-neutral-dark">Health Coaching</h2>
-        <p class="text-neutral-dark mb-4">Individual/family health coaching (food & lifestyle).</p>
-      </div>
-      
-      <div class="bg-primary-light/20 p-6 rounded-lg">
-        <h2 class="text-2xl font-heading font-semibold mb-3 text-neutral-dark">Assessment & Testing</h2>
-        <p class="text-neutral-dark mb-4">Comprehensive psychological assessments and evaluations.</p>
-        <a href="/services/assessment-testing" class="text-primary hover:underline font-semibold">Learn more →</a>
-      </div>
-      
-      <div class="bg-primary-light/20 p-6 rounded-lg">
-        <h2 class="text-2xl font-heading font-semibold mb-3 text-neutral-dark">Reduced Rate Services</h2>
-        <p class="text-neutral-dark mb-4">Affordable options for those in need.</p>
-        <a href="/services/reduced-rate" class="text-primary hover:underline font-semibold">Learn more →</a>
+      <div class="grid cols-3">
+        <article class="card">
+          <h3>Counseling/Psychotherapy Services</h3>
+          <p>Individual, couples, and family counseling.</p>
+          <a href="/services/counseling-services">Learn more →</a>
+        </article>
+        
+        <article class="card">
+          <h3>Massage Therapy Services</h3>
+          <p>Therapeutic massage to support mental and physical wellness.</p>
+          <a href="/services/massage-therapy">Learn more →</a>
+        </article>
+        
+        <article class="card">
+          <h3>Medication Management Services</h3>
+          <p>Evaluation and ongoing management for 12+ including depression, anxiety, ADHD, insomnia, and more.</p>
+          <a href="/services/medication-management">Learn more →</a>
+        </article>
+        
+        <article class="card">
+          <h3>Health Coaching</h3>
+          <p>Individual/family health coaching (food & lifestyle).</p>
+        </article>
+        
+        <article class="card">
+          <h3>Assessment & Testing</h3>
+          <p>Comprehensive psychological assessments and evaluations.</p>
+          <a href="/services/assessment-testing">Learn more →</a>
+        </article>
+        
+        <article class="card">
+          <h3>Reduced Rate Services</h3>
+          <p>Affordable options for those in need.</p>
+          <a href="/services/reduced-rate">Learn more →</a>
+        </article>
       </div>
     </div>
-  </div>
+  </section>
 </BaseLayout>
 

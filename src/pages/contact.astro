@@ -3,109 +3,110 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout title="Contact Us" description="Contact Wright Wellness - Get in touch with our team.">
-  <div class="container mx-auto px-4 py-16">
-    <div class="max-w-4xl mx-auto">
-      <h1 class="text-4xl font-heading font-bold text-center mb-12 text-neutral-dark">Contact Us</h1>
+  <section>
+    <div class="wrap">
+      <header>
+        <h1>Contact Us</h1>
+      </header>
       
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="grid cols-3" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
         <!-- Contact Information -->
-        <div>
-          <h2 class="text-2xl font-heading font-semibold mb-6 text-neutral-dark">Get in Touch</h2>
+        <article class="card">
+          <h3>Get in Touch</h3>
           
-          <div class="space-y-6 mb-8">
-            <div>
-              <h3 class="font-heading font-semibold mb-2 text-neutral-dark">Address</h3>
-              <p class="text-neutral-dark">
-                1398 W. Mayfield Rd., Suite 220<br />
-                Arlington, TX 76015
-              </p>
-            </div>
-            
-            <div>
-              <h3 class="font-heading font-semibold mb-2 text-neutral-dark">Phone/Text & Fax*</h3>
-              <p class="text-neutral-dark">
-                Phone: <a href="tel:6827774325" class="text-primary hover:underline">682-777-4325</a><br />
-                Fax: 877-805-4720
-              </p>
-            </div>
-            
-            <div>
-              <h3 class="font-heading font-semibold mb-2 text-neutral-dark">Email**</h3>
-              <p class="text-neutral-dark">
-                <a href="mailto:office@wrightwellness.me" class="text-primary hover:underline">office@wrightwellness.me</a>
-              </p>
-            </div>
+          <div style="margin-top: 24px;">
+            <h4 style="font-weight: 600; margin-bottom: 8px; color: var(--ink);">Address</h4>
+            <p style="color: var(--muted); margin-bottom: 16px;">
+              1398 W. Mayfield Rd., Suite 220<br />
+              Arlington, TX 76015
+            </p>
           </div>
-        </div>
+          
+          <div>
+            <h4 style="font-weight: 600; margin-bottom: 8px; color: var(--ink);">Phone/Text & Fax*</h4>
+            <p style="color: var(--muted); margin-bottom: 16px;">
+              Phone: <a href="tel:6827774325">682-777-4325</a><br />
+              Fax: 877-805-4720
+            </p>
+          </div>
+          
+          <div>
+            <h4 style="font-weight: 600; margin-bottom: 8px; color: var(--ink);">Email**</h4>
+            <p style="color: var(--muted);">
+              <a href="mailto:office@wrightwellness.me">office@wrightwellness.me</a>
+            </p>
+          </div>
+        </article>
         
         <!-- Contact Form -->
-        <div>
-          <h2 class="text-2xl font-heading font-semibold mb-6 text-neutral-dark">Send us a Message</h2>
+        <article class="card">
+          <h3>Send us a Message</h3>
           
           <!-- TODO: Replace YOUR_FORM_ID with your actual Formspree form ID -->
           <form 
             action="https://formspree.io/f/YOUR_FORM_ID" 
             method="POST"
-            class="space-y-4"
+            style="margin-top: 24px; display: flex; flex-direction: column; gap: 16px;"
           >
             <div>
-              <label for="name" class="block text-sm font-semibold mb-2 text-neutral-dark">Name *</label>
+              <label for="name" style="display: block; font-weight: 600; margin-bottom: 8px; color: var(--ink); font-size: 14px;">Name *</label>
               <input 
                 type="text" 
                 id="name" 
                 name="name" 
                 required
-                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+                style="width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-radius: var(--radius-sm); font-family: inherit; font-size: 14px;"
               />
             </div>
             
             <div>
-              <label for="email" class="block text-sm font-semibold mb-2 text-neutral-dark">Email *</label>
+              <label for="email" style="display: block; font-weight: 600; margin-bottom: 8px; color: var(--ink); font-size: 14px;">Email *</label>
               <input 
                 type="email" 
                 id="email" 
                 name="email" 
                 required
-                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+                style="width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-radius: var(--radius-sm); font-family: inherit; font-size: 14px;"
               />
             </div>
             
             <div>
-              <label for="phone" class="block text-sm font-semibold mb-2 text-neutral-dark">Phone</label>
+              <label for="phone" style="display: block; font-weight: 600; margin-bottom: 8px; color: var(--ink); font-size: 14px;">Phone</label>
               <input 
                 type="tel" 
                 id="phone" 
                 name="phone"
-                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+                style="width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-radius: var(--radius-sm); font-family: inherit; font-size: 14px;"
               />
             </div>
             
             <div>
-              <label for="message" class="block text-sm font-semibold mb-2 text-neutral-dark">Message *</label>
+              <label for="message" style="display: block; font-weight: 600; margin-bottom: 8px; color: var(--ink); font-size: 14px;">Message *</label>
               <textarea 
                 id="message" 
                 name="message" 
                 rows="5" 
                 required
-                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+                style="width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-radius: var(--radius-sm); font-family: inherit; font-size: 14px; resize: vertical;"
               ></textarea>
             </div>
             
             <button 
               type="submit"
-              class="w-full bg-primary text-white px-6 py-3 rounded-lg font-body hover:bg-primary/90 transition-colors"
+              class="btn primary"
+              style="width: 100%;"
             >
               Send Message
             </button>
           </form>
           
-          <p class="text-sm text-gray-600 mt-4">
+          <p style="font-size: 12px; color: var(--muted); margin-top: 16px;">
             * Required fields<br />
             ** Please note: Email is not secure for sensitive information. For urgent matters, please call us.
           </p>
-        </div>
+        </article>
       </div>
     </div>
-  </div>
+  </section>
 </BaseLayout>
 

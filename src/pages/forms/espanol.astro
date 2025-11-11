@@ -3,48 +3,45 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout title="Formularios del Paciente (Español)" description="Descargue formularios y documentos del paciente para Wright Wellness.">
-  <div class="container mx-auto px-4 py-16">
-    <div class="max-w-3xl mx-auto">
-      <h1 class="text-4xl font-heading font-bold mb-6 text-neutral-dark">Formularios del Paciente (Español)</h1>
+  <section>
+    <div class="wrap">
+      <header>
+        <h1>Formularios del Paciente (Español)</h1>
+        <p class="sub">Por favor descargue y complete los siguientes formularios opcionales antes de su primera cita.</p>
+      </header>
       
-      <div class="prose prose-lg max-w-none mb-8">
-        <p class="text-neutral-dark text-lg leading-relaxed mb-6">
-          Por favor descargue y complete los siguientes formularios opcionales antes de su primera cita.
-        </p>
+      <div class="grid cols-3" style="margin-bottom: 24px;">
+        <div class="card">
+          <h3>Autorización para divulgar información</h3>
+          <p style="color: var(--muted);">Autorización para compartir información médica.</p>
+          <a href="#">Descargar PDF →</a>
+        </div>
         
-        <div class="bg-primary-light/20 p-6 rounded-lg space-y-4">
-          <div>
-            <h2 class="text-xl font-heading font-semibold mb-2 text-neutral-dark">Autorización para divulgar información</h2>
-            <p class="text-neutral-dark mb-2">Autorización para compartir información médica.</p>
-            <a href="#" class="text-primary hover:underline font-semibold">Descargar PDF →</a>
-          </div>
-          
-          <div>
-            <h2 class="text-xl font-heading font-semibold mb-2 text-neutral-dark">Consentimiento Informado de Telesalud</h2>
-            <p class="text-neutral-dark mb-2">Consentimiento para servicios de telesalud.</p>
-            <a href="#" class="text-primary hover:underline font-semibold">Descargar PDF →</a>
-          </div>
-          
-          <div>
-            <h2 class="text-xl font-heading font-semibold mb-2 text-neutral-dark">Documentación de Custodia de Menores</h2>
-            <p class="text-neutral-dark mb-2">Formularios relacionados con la custodia de menores.</p>
-            <a href="#" class="text-primary hover:underline font-semibold">Descargar PDF →</a>
-          </div>
+        <div class="card">
+          <h3>Consentimiento Informado de Telesalud</h3>
+          <p style="color: var(--muted);">Consentimiento para servicios de telesalud.</p>
+          <a href="#">Descargar PDF →</a>
+        </div>
+        
+        <div class="card">
+          <h3>Documentación de Custodia de Menores</h3>
+          <p style="color: var(--muted);">Formularios relacionados con la custodia de menores.</p>
+          <a href="#">Descargar PDF →</a>
         </div>
       </div>
       
-      <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-8">
-        <p class="text-neutral-dark">
+      <div class="card" style="border-left: 4px solid #3b82f6; background: #dbeafe; margin-bottom: 24px;">
+        <p style="color: var(--ink); margin: 0;">
           <strong>Nota:</strong> Estos formularios son marcadores de posición. Por favor contáctenos en 
-          <a href="mailto:office@wrightwellness.me" class="text-primary hover:underline">office@wrightwellness.me</a> 
-          o <a href="tel:6827774325" class="text-primary hover:underline">682-777-4325</a> para recibir los formularios reales.
+          <a href="mailto:office@wrightwellness.me">office@wrightwellness.me</a> 
+          o <a href="tel:6827774325">682-777-4325</a> para recibir los formularios reales.
         </p>
       </div>
       
-      <div class="mt-8">
-        <a href="/forms" class="text-primary hover:underline font-semibold">← Volver a Formularios</a>
+      <div style="margin-top: 24px;">
+        <a href="/forms" class="btn tertiary">← Volver a Formularios</a>
       </div>
     </div>
-  </div>
+  </section>
 </BaseLayout>
 

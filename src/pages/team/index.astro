@@ -4,42 +4,42 @@ import { teamMembers } from '../../data/team';
 ---
 
 <BaseLayout title="Our Team" description="Meet the compassionate team at Wright Wellness dedicated to your mental health and wellness.">
-  <div class="container mx-auto px-4 py-16">
-    <h1 class="text-4xl font-heading font-bold text-center mb-4 text-neutral-dark">Our Team</h1>
-    <p class="text-center text-lg text-neutral-dark mb-12 max-w-2xl mx-auto">
-      Our diverse team of licensed professionals is committed to providing compassionate, 
-      evidence-based care to support your journey toward wellness.
-    </p>
-    
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {teamMembers.map((member) => (
-        <a 
-          href={`/team/${member.slug}`}
-          class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow border border-gray-100"
-        >
-          {member.image ? (
-            <div class="w-32 h-32 rounded-full mx-auto mb-4 overflow-hidden flex items-center justify-center bg-primary-light">
-              <img 
-                src={member.image} 
-                alt={member.name}
-                class="w-full h-full object-cover scale-110 object-[center_10%]"
-              />
-            </div>
-          ) : (
-            <div class="w-32 h-32 bg-primary-light rounded-full mx-auto mb-4 flex items-center justify-center">
-              <span class="text-4xl text-primary font-heading font-bold">
-                {member.name.split(' ').map(n => n[0]).join('')}
-              </span>
-            </div>
-          )}
-          <h2 class="text-xl font-heading font-semibold text-center mb-2 text-neutral-dark">
-            {member.name}
-          </h2>
-          <p class="text-sm text-center text-primary mb-4">{member.title}</p>
-          <p class="text-sm text-neutral-dark text-center line-clamp-3">{member.bio}</p>
-        </a>
-      ))}
+  <section>
+    <div class="wrap">
+      <header>
+        <h1>Our Team</h1>
+        <p class="sub">Our diverse team of licensed professionals is committed to providing compassionate, evidence-based care to support your journey toward wellness.</p>
+      </header>
+      
+      <div class="grid cols-3">
+        {teamMembers.map((member) => (
+          <a 
+            href={`/team/${member.slug}`}
+            class="card"
+            style="text-decoration: none; display: block;"
+          >
+            {member.image ? (
+              <div style="width: 128px; height: 128px; border-radius: 50%; margin: 0 auto 16px; overflow: hidden; display: flex; align-items: center; justify-content: center; background: var(--accent-olive);">
+                <img 
+                  src={member.image} 
+                  alt={member.name}
+                  style="width: 100%; height: 100%; object-fit: cover; transform: scale(1.1); object-position: center 10%;"
+                />
+              </div>
+            ) : (
+              <div style="width: 128px; height: 128px; background: var(--accent-olive); border-radius: 50%; margin: 0 auto 16px; display: flex; align-items: center; justify-content: center;">
+                <span style="font-size: 2rem; color: var(--brand-green); font-weight: 600;">
+                  {member.name.split(' ').map(n => n[0]).join('')}
+                </span>
+              </div>
+            )}
+            <h3 style="text-align: center; margin-bottom: 8px;">{member.name}</h3>
+            <p style="text-align: center; color: var(--brand-purple); margin-bottom: 16px; font-size: 14px;">{member.title}</p>
+            <p style="text-align: center; font-size: 14px; color: var(--muted);">{member.bio}</p>
+          </a>
+        ))}
+      </div>
     </div>
-  </div>
+  </section>
 </BaseLayout>
 

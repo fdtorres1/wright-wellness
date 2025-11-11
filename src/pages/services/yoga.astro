@@ -3,25 +3,28 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout title="Yoga Services" description="Yoga services at Wright Wellness for wellness and mindfulness.">
-  <div class="container mx-auto px-4 py-16">
-    <div class="max-w-3xl mx-auto">
-      <h1 class="text-4xl font-heading font-bold mb-6 text-neutral-dark">Yoga Services</h1>
+  <section>
+    <div class="wrap">
+      <header>
+        <h1>Yoga Services</h1>
+      </header>
       
-      <div class="prose prose-lg max-w-none mb-8">
-        <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-6">
-          <p class="text-neutral-dark font-semibold">
-            ⚠️ Yoga services are currently unavailable. Services are paused pending updates.
-          </p>
-        </div>
-        <p class="text-neutral-dark text-lg leading-relaxed">
+      <div class="card" style="margin-bottom: 24px; border-left: 4px solid #fbbf24; background: #fef3c7;">
+        <p style="color: var(--ink); font-weight: 600; margin: 0;">
+          ⚠️ Yoga services are currently unavailable. Services are paused pending updates.
+        </p>
+      </div>
+      
+      <div class="card" style="margin-bottom: 24px;">
+        <p style="color: var(--muted);">
           We apologize for any inconvenience. Please check back for updates on when yoga services will resume.
         </p>
       </div>
       
-      <div class="mt-8">
-        <a href="/services/overview" class="text-primary hover:underline font-semibold">← Back to Services</a>
+      <div style="margin-top: 24px;">
+        <a href="/services/overview" class="btn tertiary">← Back to Services</a>
       </div>
     </div>
-  </div>
+  </section>
 </BaseLayout>
 

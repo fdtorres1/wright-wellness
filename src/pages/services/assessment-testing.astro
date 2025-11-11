@@ -3,38 +3,40 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout title="Assessment & Testing" description="Comprehensive psychological assessments and testing services at Wright Wellness.">
-  <div class="container mx-auto px-4 py-16">
-    <div class="max-w-3xl mx-auto">
-      <h1 class="text-4xl font-heading font-bold mb-6 text-neutral-dark">Assessment & Testing</h1>
+  <section>
+    <div class="wrap">
+      <header>
+        <h1>Assessment & Testing</h1>
+      </header>
       
-      <div class="prose prose-lg max-w-none mb-8">
-        <p class="text-neutral-dark text-lg leading-relaxed mb-4">
+      <div class="card" style="margin-bottom: 24px;">
+        <p style="color: var(--muted); margin-bottom: 16px;">
           We offer comprehensive psychological assessments and evaluations for various needs:
         </p>
-        <ul class="list-disc list-inside text-neutral-dark space-y-2">
-          <li>Cognitive/Geriatric Assessments</li>
-          <li>Intelligence Testing</li>
-          <li>Personality Assessments</li>
-          <li>Adult ADHD Evaluations</li>
-          <li>Pre-surgical/Medical Evaluations</li>
-          <li>Fitness-for-Duty/Return-to-Work Assessments</li>
-          <li>Immigration Evaluations</li>
+        <ul style="list-style: disc; padding-left: 20px; color: var(--muted);">
+          <li style="margin-bottom: 8px;">Cognitive/Geriatric Assessments</li>
+          <li style="margin-bottom: 8px;">Intelligence Testing</li>
+          <li style="margin-bottom: 8px;">Personality Assessments</li>
+          <li style="margin-bottom: 8px;">Adult ADHD Evaluations</li>
+          <li style="margin-bottom: 8px;">Pre-surgical/Medical Evaluations</li>
+          <li style="margin-bottom: 8px;">Fitness-for-Duty/Return-to-Work Assessments</li>
+          <li style="margin-bottom: 8px;">Immigration Evaluations</li>
           <li>Adult Developmental Disability Assessments</li>
         </ul>
       </div>
       
-      <div class="bg-primary-light/20 p-6 rounded-lg mb-8">
-        <h2 class="text-2xl font-heading font-semibold mb-4 text-neutral-dark">What to Expect</h2>
-        <p class="text-neutral-dark">
+      <div class="card" style="margin-bottom: 24px;">
+        <h3>What to Expect</h3>
+        <p style="color: var(--muted);">
           Our comprehensive assessment process includes initial consultation, testing administration, 
           and detailed reporting to help you understand your needs and guide treatment planning.
         </p>
       </div>
       
-      <div class="mt-8">
-        <a href="/services/overview" class="text-primary hover:underline font-semibold">← Back to Services</a>
+      <div style="margin-top: 24px;">
+        <a href="/services/overview" class="btn tertiary">← Back to Services</a>
       </div>
     </div>
-  </div>
+  </section>
 </BaseLayout>
 

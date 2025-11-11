@@ -3,31 +3,32 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout title="Servicios de Consejería" description="Servicios de consejería en español en Wright Wellness.">
-  <div class="container mx-auto px-4 py-16">
-    <div class="max-w-3xl mx-auto">
-      <h1 class="text-4xl font-heading font-bold mb-6 text-neutral-dark">Servicios de Consejería (Español)</h1>
+  <section>
+    <div class="wrap">
+      <header>
+        <h1>Servicios de Consejería (Español)</h1>
+      </header>
       
-      <div class="prose prose-lg max-w-none mb-8">
-        <p class="text-neutral-dark text-lg leading-relaxed">
+      <div class="card" style="margin-bottom: 24px;">
+        <p style="color: var(--muted);">
           Durante su primera sesión de terapia, realizaremos una <strong>evaluación</strong> de sus necesidades y metas de tratamiento. 
           A partir de eso, juntos decidiremos si continuar trabajando conjuntamente es la mejor opción.
         </p>
       </div>
       
-      <div class="bg-primary-light/20 p-6 rounded-lg mb-8">
-        <h2 class="text-2xl font-heading font-semibold mb-4 text-neutral-dark">Nuestros Servicios</h2>
-        <p class="text-neutral-dark">
+      <div class="card" style="margin-bottom: 24px;">
+        <h3>Nuestros Servicios</h3>
+        <p style="color: var(--muted);">
           Ofrecemos servicios de consejería individual, de pareja y familiar en español. 
           Nuestro equipo incluye profesionales bilingües dedicados a brindar atención culturalmente competente.
         </p>
       </div>
       
-      <div class="mt-8">
-        <a href="/services/overview" class="text-primary hover:underline font-semibold">← Back to Services</a>
-        <span class="mx-2">|</span>
-        <a href="/contact" class="text-primary hover:underline font-semibold">Contact Us</a>
+      <div style="margin-top: 24px; display: flex; gap: 12px; flex-wrap: wrap;">
+        <a href="/services/overview" class="btn tertiary">← Back to Services</a>
+        <a href="/contact" class="btn tertiary">Contact Us</a>
       </div>
     </div>
-  </div>
+  </section>
 </BaseLayout>
 

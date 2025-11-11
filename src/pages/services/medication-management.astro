@@ -3,35 +3,37 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout title="Medication Management" description="Medication management services for ages 12+ at Wright Wellness.">
-  <div class="container mx-auto px-4 py-16">
-    <div class="max-w-3xl mx-auto">
-      <h1 class="text-4xl font-heading font-bold mb-6 text-neutral-dark">Medication Management</h1>
+  <section>
+    <div class="wrap">
+      <header>
+        <h1>Medication Management</h1>
+      </header>
       
-      <div class="prose prose-lg max-w-none mb-8">
-        <p class="text-neutral-dark text-lg leading-relaxed">
+      <div class="card" style="margin-bottom: 24px;">
+        <p style="color: var(--muted); margin-bottom: 16px;">
           Our medication management services include evaluation of symptoms, conditions, and lifestyle. 
           Recommendations may include psychotherapy, exercise, nutrition, and medications. 
           Initial evaluation is followed by 20–30 minute follow-up appointments.
         </p>
-        <p class="text-neutral-dark text-lg leading-relaxed mt-4">
-          Services are provided by <a href="/team/karalee-landers-aprn" class="text-primary hover:underline font-semibold">Karalee Landers-Oliveira, APRN</a> for ages 13 and up.
+        <p style="color: var(--muted);">
+          Services are provided by <a href="/team/karalee-landers-aprn">Karalee Landers-Oliveira, APRN</a> for ages 13 and up.
         </p>
       </div>
       
-      <div class="bg-primary-light/20 p-6 rounded-lg mb-8">
-        <h2 class="text-2xl font-heading font-semibold mb-4 text-neutral-dark">What to Expect</h2>
-        <ul class="list-disc list-inside text-neutral-dark space-y-2">
-          <li>Comprehensive initial evaluation</li>
-          <li>Ongoing medication management</li>
-          <li>Regular follow-up appointments (20-30 minutes)</li>
+      <div class="card" style="margin-bottom: 24px;">
+        <h3>What to Expect</h3>
+        <ul style="list-style: disc; padding-left: 20px; color: var(--muted); margin-top: 12px;">
+          <li style="margin-bottom: 8px;">Comprehensive initial evaluation</li>
+          <li style="margin-bottom: 8px;">Ongoing medication management</li>
+          <li style="margin-bottom: 8px;">Regular follow-up appointments (20-30 minutes)</li>
           <li>Coordination with your therapy team</li>
         </ul>
       </div>
       
-      <div class="mt-8">
-        <a href="/services/overview" class="text-primary hover:underline font-semibold">← Back to Services</a>
+      <div style="margin-top: 24px;">
+        <a href="/services/overview" class="btn tertiary">← Back to Services</a>
       </div>
     </div>
-  </div>
+  </section>
 </BaseLayout>
 

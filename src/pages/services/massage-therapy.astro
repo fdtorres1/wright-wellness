@@ -3,34 +3,36 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout title="Massage Therapy" description="Therapeutic massage services at Wright Wellness to support mental and physical wellness.">
-  <div class="container mx-auto px-4 py-16">
-    <div class="max-w-3xl mx-auto">
-      <h1 class="text-4xl font-heading font-bold mb-6 text-neutral-dark">Massage Therapy</h1>
+  <section>
+    <div class="wrap">
+      <header>
+        <h1>Massage Therapy</h1>
+      </header>
       
-      <div class="prose prose-lg max-w-none mb-8">
-        <p class="text-neutral-dark text-lg leading-relaxed">
+      <div class="card" style="margin-bottom: 24px;">
+        <p style="color: var(--muted); margin-bottom: 16px;">
           We offer therapeutic massage services to support both mental and physical wellness. 
           Our practice has a no-tipping policy.
         </p>
-        <p class="text-neutral-dark text-lg leading-relaxed mt-4">
-          For specialties and details, see <a href="/team/ruth-bucher" class="text-primary hover:underline font-semibold">Ruth Bucher's</a> page.
+        <p style="color: var(--muted);">
+          For specialties and details, see <a href="/team/ruth-bucher">Ruth Bucher's</a> page.
         </p>
       </div>
       
-      <div class="bg-primary-light/20 p-6 rounded-lg mb-8">
-        <h2 class="text-2xl font-heading font-semibold mb-4 text-neutral-dark">Benefits</h2>
-        <ul class="list-disc list-inside text-neutral-dark space-y-2">
-          <li>Pain relief and management</li>
-          <li>Trauma recovery support</li>
-          <li>Stress reduction</li>
+      <div class="card" style="margin-bottom: 24px;">
+        <h3>Benefits</h3>
+        <ul style="list-style: disc; padding-left: 20px; color: var(--muted); margin-top: 12px;">
+          <li style="margin-bottom: 8px;">Pain relief and management</li>
+          <li style="margin-bottom: 8px;">Trauma recovery support</li>
+          <li style="margin-bottom: 8px;">Stress reduction</li>
           <li>Improved physical and mental wellness</li>
         </ul>
       </div>
       
-      <div class="mt-8">
-        <a href="/services/overview" class="text-primary hover:underline font-semibold">← Back to Services</a>
+      <div style="margin-top: 24px;">
+        <a href="/services/overview" class="btn tertiary">← Back to Services</a>
       </div>
     </div>
-  </div>
+  </section>
 </BaseLayout>
 

@@ -1,59 +1,235 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { teamMembers as allTeamMembers } from '../data/team.ts';
+
+// Find Lacey Wright and separate her from others
+const laceyWright = allTeamMembers.find(member => 
+  member.name.toLowerCase().includes('lacey wright')
+) || allTeamMembers[0];
+
+const otherMembers = allTeamMembers.filter(member => 
+  !member.name.toLowerCase().includes('lacey wright')
+);
+
+// Randomly select 3 other team members and shuffle them
+const getRandomMembers = (array: typeof otherMembers, count: number) => {
+  const shuffled = [...array];
+  // Fisher-Yates shuffle
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled.slice(0, count);
+};
+
+const selectedOthers = getRandomMembers(otherMembers, 3);
+
+// Format team members for display
+const shuffledTeam = [
+  {
+    name: laceyWright.name.includes('Dr.') ? laceyWright.name : `Dr. ${laceyWright.name}`,
+    description: laceyWright.bio
+  },
+  ...selectedOthers.map(member => ({
+    name: member.name,
+    description: member.bio
+  }))
+];
 ---
 
-<BaseLayout title="Home" description="Wright Wellness - Take a step today towards a healthier you. Counseling, Medication Management, Massage Therapy, Assessment & Testing, and Yoga services.">
-  <div class="relative">
-    <!-- Hero section with forest image -->
-    <div class="relative w-full h-[600px] md:h-[700px]">
-      <!-- Hero image -->
-      <div class="absolute inset-0">
-        <img 
-          src="/hero.webp" 
-          alt="Wright Wellness - Nature scene" 
-          class="w-full h-full object-cover"
-        />
+<BaseLayout title="Wright Wellness — Welcome" description="Warm, non‑judgmental counseling, medication management, assessment, massage therapy, and mind‑body care in Arlington, TX.">
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap">
+        <div class="kicker">Arlington, Texas • Counseling & Integrated Care</div>
+        <h1>Welcome. Asking for help is strength.</h1>
+        <blockquote aria-label="Reframing stigma">
+          <p><em>"You are Weak. Shameful. Broken. Crazy."</em><br>
+          We reject those labels. At Wright Wellness, asking for help is <strong>STRENGTH, COURAGE, and ACCEPTANCE</strong>—and a step toward understanding others and being kinder to ourselves.</p>
+        </blockquote>
+        <p class="lead">Take a step today toward a healthier you.</p>
+        <div class="panel">
+          <a class="btn primary" href="https://wrightwellness.clientsecure.me/" target="_blank" rel="noopener" aria-label="Request an Appointment">Request an Appointment</a>
+          <a class="btn secondary" href="tel:+16827774325" aria-label="Call 682-777-4325">Call 682‑777‑4325</a>
+          <a class="btn tertiary" href="#espanol" aria-label="Servicios en Español">Servicios en Español</a>
+        </div>
       </div>
-      <!-- Dark overlay -->
-      <div class="absolute inset-0 bg-black/40"></div>
-      <!-- Welcome text centered over image -->
-      <div class="relative h-full flex items-center justify-center">
-        <h1 class="text-6xl md:text-8xl font-heading font-bold text-white">
-          Welcome
-        </h1>
-      </div>
-    </div>
+    </section>
 
-    <!-- Content Section -->
-    <section class="bg-white py-16">
-      <div class="container mx-auto px-4">
-        <div class="max-w-4xl mx-auto">
-          <!-- Main heading -->
-          <h2 class="text-3xl md:text-4xl font-heading font-bold text-neutral-dark mb-6 text-center">
-            You are Weak. Shameful. Broken. Crazy.
-          </h2>
-          
-          <!-- Paragraph text -->
-          <p class="text-lg md:text-xl text-neutral-dark mb-8 text-center leading-relaxed">
-            These are common judgments when asking for help. What if that stigma changed, and asking for help became synonymous with <strong>STRENGTH, COURAGE, and ACCEPTANCE</strong>? What if we tried to be more <strong>UNDERSTANDING</strong> of others and <strong>KINDER</strong> to ourselves?
-          </p>
-          
-          <!-- Call to action -->
-          <p class="text-2xl md:text-3xl font-heading font-bold text-neutral-dark mb-8 text-center">
-            Take a step today towards a healthier you.
-          </p>
-          
-          <!-- Learn more button -->
-          <div class="text-center">
-            <a 
-              href="/services" 
-              class="inline-block bg-neutral-dark text-white px-8 py-4 rounded-md font-body hover:bg-neutral-dark/90 transition-colors text-lg"
-            >
-              Learn more
-            </a>
+    <!-- QUICK SERVICES -->
+    <section id="services">
+      <div class="wrap">
+        <header>
+          <h2>Care you can count on</h2>
+          <p class="sub">Whole‑person support from a compassionate, integrated team.</p>
+        </header>
+        <div class="grid cols-3">
+          <article class="card">
+            <div class="chip">Counseling & Psychotherapy</div>
+            <h3>Individual, Couples, Family</h3>
+            <p>Trauma‑informed, evidence‑based therapy. Telehealth options available; walk‑and‑talk when appropriate.</p>
+            <a href="/services/counseling-services">Start counseling →</a>
+          </article>
+
+          <article class="card">
+            <div class="chip">Medication Management</div>
+            <h3>Thoughtful, collaborative care (13+)</h3>
+            <p>Holistic evaluations with recommendations that may include therapy, movement, nutrition, and medication when indicated.</p>
+            <a href="/services/medication-management">Discuss options →</a>
+          </article>
+
+          <article class="card">
+            <div class="chip">Assessment & Testing</div>
+            <h3>ADHD, Cognitive & More</h3>
+            <p>Adult ADHD, cognitive/geriatric, intelligence, personality, pre‑surgical/medical, return‑to‑work, immigration, and developmental screenings.</p>
+            <a href="/services/assessment-testing">Request an assessment →</a>
+          </article>
+
+          <article class="card">
+            <div class="chip">Massage Therapy</div>
+            <h3>Therapeutic bodywork</h3>
+            <p>Support recovery, reduce stress, and reconnect body and mind. No‑tipping policy.</p>
+            <a href="/services/massage-therapy">Check availability →</a>
+          </article>
+
+          <article class="card">
+            <div class="chip">Yoga</div>
+            <h3>Mind‑body practices</h3>
+            <p>Currently paused. Check back for updates.</p>
+            <a href="/services/yoga">Ask about classes →</a>
+          </article>
+
+          <article class="card">
+            <div class="chip">Accessible Care</div>
+            <h3>Reduced Rate Options</h3>
+            <p>Reduced‑fee sessions available (as low as <strong>$65</strong>/session) with additional resources for affordability.</p>
+            <a href="/services/reduced-rate">Learn about fees →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY WW -->
+    <section>
+      <div class="wrap">
+        <header>
+          <h2>Why Wright Wellness</h2>
+          <p class="sub">Warm, non‑judgmental care backed by proven approaches.</p>
+        </header>
+        <div class="grid cols-3">
+          <div class="card">
+            <h3>Non‑judgmental & empowering</h3>
+            <p>Your story matters. We move at your pace and focus on what feels possible now.</p>
+          </div>
+          <div class="card">
+            <h3>Integrated team</h3>
+            <p>Psychologists, licensed counselors, psychiatric nurse practitioner, and therapeutic massage working together.</p>
+          </div>
+          <div class="card">
+            <h3>Whole‑person approach</h3>
+            <p>Skills, insight, habits—and medication when appropriate—to support lasting change.</p>
           </div>
         </div>
       </div>
     </section>
-  </div>
+
+    <!-- TEAM PREVIEW -->
+    <section id="team">
+      <div class="wrap">
+        <header>
+          <h2>Meet the team</h2>
+          <p class="sub">Compassionate professionals committed to your growth.</p>
+        </header>
+        <div class="grid cols-4">
+          {shuffledTeam.map((member) => (
+            <article class="card">
+              <h3>{member.name}</h3>
+              <p>{member.description}</p>
+            </article>
+          ))}
+        </div>
+        <div style="margin-top:12px">
+          <a class="btn tertiary" href="/team">See full team →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTENT PREVIEW -->
+    <section id="content">
+      <div class="wrap">
+        <header>
+          <h2>Mind‑FULL Reads & Words</h2>
+          <p class="sub">Short, practical posts you can use between sessions.</p>
+        </header>
+        <div class="grid cols-3">
+          <article class="card">
+            <h3>Why Talking Through Problems Can Make You Smarter</h3>
+            <p>Language doesn't have to be perfect to be powerful.</p>
+            <a href="/mind-full-content">Read more →</a>
+          </article>
+          <article class="card">
+            <h3>How to Resist the Urge to Fix Everything</h3>
+            <p>Relieve pressure and become more genuinely helpful.</p>
+            <a href="/mind-full-content">Read more →</a>
+          </article>
+          <article class="card">
+            <h3>Emotional Regulation Through Bilateral Stimulation</h3>
+            <p>Everyday hobbies that support the nervous system.</p>
+            <a href="/mind-full-content">Read more →</a>
+          </article>
+        </div>
+        <div style="margin-top:12px">
+          <a class="btn tertiary" href="/mind-full-content">View all Reads →</a>
+          <a class="btn tertiary" href="/mind-full-content" style="margin-left:8px">View all Words →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORMS / PORTAL -->
+    <section id="forms">
+      <div class="wrap">
+        <header>
+          <h2>Getting started</h2>
+          <p class="sub">Fastest onboarding: complete your paperwork in our secure portal.</p>
+        </header>
+        <div class="grid cols-3">
+          <article class="card">
+            <h3>Client Portal</h3>
+            <p>Schedule, messages, and secure intake paperwork in one place.</p>
+            <a href="https://wrightwellness.clientsecure.me/" target="_blank" rel="noopener">Open portal →</a>
+          </article>
+          <article class="card">
+            <h3>Forms (English)</h3>
+            <p>Downloadable packets, notices, and estimates if you prefer PDFs.</p>
+            <a href="/forms/english">View English forms →</a>
+          </article>
+          <article class="card" id="espanol">
+            <h3>Formularios (Español)</h3>
+            <p>Opciones en español para facilitar el proceso de registro.</p>
+            <a href="/forms/espanol">Ver formularios en español →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- JSON-LD for local business -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "MedicalClinic",
+    "name": "Wright Wellness",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "1398 W. Mayfield Rd., Suite 220",
+      "addressLocality": "Arlington",
+      "addressRegion": "TX",
+      "postalCode": "76015",
+      "addressCountry": "US"
+    },
+    "telephone": "+1-682-777-4325",
+    "url": "https://wrightwellness.me",
+    "medicalSpecialty": "Psychiatric"
+  })} />
 </BaseLayout>

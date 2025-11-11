@@ -3,55 +3,51 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout title="Patient Forms (English)" description="Download patient forms and documents for Wright Wellness.">
-  <div class="container mx-auto px-4 py-16">
-    <div class="max-w-3xl mx-auto">
-      <h1 class="text-4xl font-heading font-bold mb-6 text-neutral-dark">Patient Forms (English)</h1>
+  <section>
+    <div class="wrap">
+      <header>
+        <h1>Patient Forms (English)</h1>
+        <p class="sub">Please download and complete the following forms before your first appointment. For fastest processing, use the <strong>Client Portal</strong> invite.</p>
+      </header>
       
-      <div class="prose prose-lg max-w-none mb-8">
-        <p class="text-neutral-dark text-lg leading-relaxed mb-6">
-          Please download and complete the following forms before your first appointment. 
-          For fastest processing, use the <strong>Client Portal</strong> invite.
-        </p>
+      <div class="grid cols-3" style="margin-bottom: 24px;">
+        <div class="card">
+          <h3>Notice of Privacy Practices (NPP)</h3>
+          <p style="color: var(--muted);">Our privacy practices and how we protect your information.</p>
+          <a href="#">Download PDF →</a>
+        </div>
         
-        <div class="bg-primary-light/20 p-6 rounded-lg space-y-4">
-          <div>
-            <h2 class="text-xl font-heading font-semibold mb-2 text-neutral-dark">Notice of Privacy Practices (NPP)</h2>
-            <p class="text-neutral-dark mb-2">Our privacy practices and how we protect your information.</p>
-            <a href="#" class="text-primary hover:underline font-semibold">Download PDF →</a>
-          </div>
-          
-          <div>
-            <h2 class="text-xl font-heading font-semibold mb-2 text-neutral-dark">New Counseling Patient Packet</h2>
-            <p class="text-neutral-dark mb-2">Complete intake forms for new counseling patients.</p>
-            <a href="#" class="text-primary hover:underline font-semibold">Download PDF →</a>
-          </div>
-          
-          <div>
-            <h2 class="text-xl font-heading font-semibold mb-2 text-neutral-dark">New Medication Patient Packet</h2>
-            <p class="text-neutral-dark mb-2">Complete intake forms for new medication management patients.</p>
-            <a href="#" class="text-primary hover:underline font-semibold">Download PDF →</a>
-          </div>
-          
-          <div>
-            <h2 class="text-xl font-heading font-semibold mb-2 text-neutral-dark">Notice of Good Faith Estimate</h2>
-            <p class="text-neutral-dark mb-2">Information about estimated costs for services.</p>
-            <a href="#" class="text-primary hover:underline font-semibold">Download PDF →</a>
-          </div>
+        <div class="card">
+          <h3>New Counseling Patient Packet</h3>
+          <p style="color: var(--muted);">Complete intake forms for new counseling patients.</p>
+          <a href="#">Download PDF →</a>
+        </div>
+        
+        <div class="card">
+          <h3>New Medication Patient Packet</h3>
+          <p style="color: var(--muted);">Complete intake forms for new medication management patients.</p>
+          <a href="#">Download PDF →</a>
+        </div>
+        
+        <div class="card">
+          <h3>Notice of Good Faith Estimate</h3>
+          <p style="color: var(--muted);">Information about estimated costs for services.</p>
+          <a href="#">Download PDF →</a>
         </div>
       </div>
       
-      <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-8">
-        <p class="text-neutral-dark">
+      <div class="card" style="border-left: 4px solid #3b82f6; background: #dbeafe; margin-bottom: 24px;">
+        <p style="color: var(--ink); margin: 0;">
           <strong>Note:</strong> These forms are placeholders. Please contact us at 
-          <a href="mailto:office@wrightwellness.me" class="text-primary hover:underline">office@wrightwellness.me</a> 
-          or <a href="tel:6827774325" class="text-primary hover:underline">682-777-4325</a> to receive the actual forms.
+          <a href="mailto:office@wrightwellness.me">office@wrightwellness.me</a> 
+          or <a href="tel:6827774325">682-777-4325</a> to receive the actual forms.
         </p>
       </div>
       
-      <div class="mt-8">
-        <a href="/forms" class="text-primary hover:underline font-semibold">← Back to Forms</a>
+      <div style="margin-top: 24px;">
+        <a href="/forms" class="btn tertiary">← Back to Forms</a>
       </div>
     </div>
-  </div>
+  </section>
 </BaseLayout>
 

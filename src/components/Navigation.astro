@@ -1,7 +1,6 @@
 ---
 const currentPath = Astro.url.pathname;
 const navItems = [
-  { name: 'Home', href: '/' },
   { name: 'Team', href: '/team' },
   { 
     name: 'Services & Fees', 
@@ -30,65 +29,63 @@ const navItems = [
 ];
 ---
 
-<nav class="hidden md:flex items-center space-x-6">
-  {navItems.map((item) => (
-    <div class="relative group">
-      <a 
-        href={item.href}
-        class={`text-neutral-dark hover:text-primary transition-colors font-body ${
-          currentPath === item.href ? 'underline' : ''
-        }`}
-      >
-        {item.name}
-      </a>
-      {item.submenu && (
-        <div class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-          <div class="py-2">
-            {item.submenu.map((subitem) => (
-              <a 
-                href={subitem.href}
-                class="block px-4 py-2 text-sm text-neutral-dark hover:bg-primary-light hover:text-white transition-colors"
-              >
-                {subitem.name}
-              </a>
-            ))}
-          </div>
-        </div>
-      )}
-    </div>
-  ))}
-</nav>
-
-<!-- Mobile menu button -->
-<button 
-  id="mobile-menu-button"
-  class="md:hidden p-2 text-neutral-dark"
-  aria-label="Toggle menu"
->
-  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-  </svg>
-</button>
-
-<!-- Mobile menu -->
-<div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 right-0 bg-white shadow-lg z-50">
-  <div class="px-4 py-4 space-y-2">
+<nav style="display: flex; align-items: center;">
+  <ul style="display: flex; flex-wrap: wrap; gap: 18px; list-style: none; margin: 0; padding: 0; align-items: center;">
     {navItems.map((item) => (
-      <div>
+      <li class="relative group">
         <a 
           href={item.href}
-          class={`block py-2 text-neutral-dark hover:text-primary font-body ${
-            currentPath === item.href ? 'underline' : ''
-          }`}
+          style={`color: var(--ink); ${currentPath === item.href ? 'text-decoration: underline;' : ''}`}
         >
           {item.name}
         </a>
         {item.submenu && (
-          <div class="pl-4 mt-1 space-y-1">
+          <div class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200" style="z-index: 100;">
+            <div class="py-2">
+              {item.submenu.map((subitem) => (
+                <a 
+                  href={subitem.href}
+                  class="block px-4 py-2 text-sm text-neutral-dark hover:bg-primary-light hover:text-white transition-colors"
+                >
+                  {subitem.name}
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
+      </li>
+    ))}
+  </ul>
+  
+  <!-- Mobile menu button - hidden on desktop -->
+  <button 
+    id="mobile-menu-button"
+    style="display: none; padding: 8px; color: var(--ink); background: none; border: none; cursor: pointer;"
+    aria-label="Toggle menu"
+  >
+    <svg style="width: 24px; height: 24px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+    </svg>
+  </button>
+</nav>
+
+<!-- Mobile menu - hidden by default -->
+<div id="mobile-menu" style="display: none; position: absolute; top: 100%; left: 0; right: 0; background: white; box-shadow: 0 10px 30px rgba(0,0,0,.08); z-index: 50;">
+  <div style="padding: 16px; display: flex; flex-direction: column; gap: 8px;">
+    {navItems.map((item) => (
+      <div>
+        <a 
+          href={item.href}
+          style={`display: block; padding: 8px 0; color: var(--ink); ${currentPath === item.href ? 'text-decoration: underline;' : ''}`}
+        >
+          {item.name}
+        </a>
+        {item.submenu && (
+          <div style="padding-left: 16px; margin-top: 4px; display: flex; flex-direction: column; gap: 4px;">
             {item.submenu.map((subitem) => (
               <a 
                 href={subitem.href}
-                class="block py-1 text-sm text-neutral-dark hover:text-primary"
+                style="display: block; padding: 4px 0; font-size: 14px; color: var(--ink);"
               >
                 {subitem.name}
               </a>
@@ -104,9 +101,31 @@ const navItems = [
   const mobileMenuButton = document.getElementById('mobile-menu-button');
   const mobileMenu = document.getElementById('mobile-menu');
   
+  // Show mobile menu button only on small screens
+  function updateMobileMenuVisibility() {
+    if (window.innerWidth < 768) {
+      if (mobileMenuButton) mobileMenuButton.style.display = 'block';
+      if (document.querySelector('nav > ul')) {
+        const navUl = document.querySelector('nav > ul');
+        if (navUl) navUl.style.display = 'none';
+      }
+    } else {
+      if (mobileMenuButton) mobileMenuButton.style.display = 'none';
+      if (document.querySelector('nav > ul')) {
+        const navUl = document.querySelector('nav > ul');
+        if (navUl) navUl.style.display = 'flex';
+      }
+      if (mobileMenu) mobileMenu.style.display = 'none';
+    }
+  }
+  
   if (mobileMenuButton && mobileMenu) {
+    updateMobileMenuVisibility();
+    window.addEventListener('resize', updateMobileMenuVisibility);
+    
     mobileMenuButton.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
+      const isHidden = mobileMenu.style.display === 'none' || !mobileMenu.style.display;
+      mobileMenu.style.display = isHidden ? 'block' : 'none';
     });
   }
 </script>

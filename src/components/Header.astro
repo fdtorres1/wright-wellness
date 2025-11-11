@@ -1,13 +1,101 @@
 ---
-import Navigation from './Navigation.astro';
-import Logo from './Logo.astro';
+const currentPath = Astro.url.pathname;
+const isHomePage = currentPath === '/';
+
+// Landing page nav items (simple, hash links)
+const landingNavItems = [
+  { name: 'Services', href: '#services' },
+  { name: 'Team', href: '#team' },
+  { name: 'Forms', href: '#forms' },
+  { name: 'Mind‑FULL', href: '#content' },
+  { name: 'Contact', href: '#contact' },
+  { name: 'Client Portal', href: 'https://wrightwellness.clientsecure.me/', external: true },
+];
+
+// Sitewide nav items (with submenus)
+const sitewideNavItems = [
+  { name: 'Team', href: '/team' },
+  { 
+    name: 'Services & Fees', 
+    href: '/services',
+    submenu: [
+      { name: 'Overview', href: '/services/overview' },
+      { name: 'Counseling Services', href: '/services/counseling-services' },
+      { name: 'Medication Management', href: '/services/medication-management' },
+      { name: 'Massage Therapy', href: '/services/massage-therapy' },
+      { name: 'Assessment & Testing', href: '/services/assessment-testing' },
+      { name: 'Yoga', href: '/services/yoga' },
+      { name: 'Reduced Rate', href: '/services/reduced-rate' },
+    ]
+  },
+  { 
+    name: 'Forms', 
+    href: '/forms',
+    submenu: [
+      { name: 'English Forms', href: '/forms/english' },
+      { name: 'Formularios (Español)', href: '/forms/espanol' },
+    ]
+  },
+  { name: 'Mind-FULL Content', href: '/mind-full-content' },
+  { name: 'Contact', href: '/contact' },
+  { name: 'Join Our Team', href: '/join-our-team' },
+];
+
+const navItems = isHomePage ? landingNavItems : sitewideNavItems;
+const ctaLink = isHomePage ? '#contact' : 'https://wrightwellness.clientsecure.me/';
 ---
 
-<header class="bg-white sticky top-0 z-50">
-  <div class="container mx-auto px-4 py-4">
-    <div class="flex items-center justify-between relative">
-      <Logo />
-      <Navigation />
+<a class="sr-only" href="#main">Skip to content</a>
+
+<header>
+  <div class="wrap topbar" role="navigation" aria-label="Primary">
+    <div class="brand">
+      <a href="/" style="display: flex; align-items: center;">
+        <img
+          src="/logo.jpg"
+          alt="Wright Wellness"
+          style="height: 56px; object-fit: contain;"
+        />
+      </a>
+    </div>
+    <nav>
+      <ul>
+        {navItems.map((item) => (
+          <li class={item.submenu ? 'relative group' : ''}>
+            <a 
+              href={item.href}
+              target={item.external ? '_blank' : undefined}
+              rel={item.external ? 'noopener' : undefined}
+            >
+              {item.name}
+            </a>
+            {item.submenu && (
+              <div class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200" style="z-index: 100;">
+                <div class="py-2">
+                  {item.submenu.map((subitem) => (
+                    <a 
+                      href={subitem.href}
+                      class="block px-4 py-2 text-sm text-neutral-dark hover:bg-primary-light hover:text-white transition-colors"
+                    >
+                      {subitem.name}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            )}
+          </li>
+        ))}
+      </ul>
+    </nav>
+    <div class="cta">
+      <a 
+        class="btn primary" 
+        href={ctaLink}
+        target={isHomePage ? undefined : '_blank'}
+        rel={isHomePage ? undefined : 'noopener'}
+      >
+        Request an Appointment
+      </a>
     </div>
   </div>
 </header>

@@ -5,6 +5,20 @@ All notable changes to the Wright Wellness website project will be documented in
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.0] - 2025-01-XX
+
+### Added
+- **Conditional Navigation**: Different navigation behavior for homepage vs. other pages
+  - Homepage shows simple hash-link navigation (Services, Team, Forms, Mind‑FULL, Contact, Client Portal)
+  - Other pages show full navigation with dropdown submenus (Services & Fees, Forms)
+  - "Join Our Team" link appears on non-homepage pages
+  - CTA button links to #contact on homepage, Client Portal on other pages
+
+### Changed
+- **Header Logo**: Increased logo size from 40px to 56px for better visibility
+- **Navigation Structure**: Simplified homepage navigation while maintaining full site navigation on other pages
+- **Header Component**: Enhanced to conditionally render appropriate navigation based on current page
+
 ## [1.2.0] - 2025-11-11
 
 ### Added
