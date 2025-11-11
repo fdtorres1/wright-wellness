@@ -17,11 +17,21 @@ import { teamMembers } from '../../data/team';
           href={`/team/${member.slug}`}
           class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow border border-gray-100"
         >
-          <div class="w-32 h-32 bg-primary-light rounded-full mx-auto mb-4 flex items-center justify-center">
-            <span class="text-4xl text-primary font-heading font-bold">
-              {member.name.split(' ').map(n => n[0]).join('')}
-            </span>
-          </div>
+          {member.image ? (
+            <div class="w-32 h-32 rounded-full mx-auto mb-4 overflow-hidden flex items-center justify-center bg-primary-light">
+              <img 
+                src={member.image} 
+                alt={member.name}
+                class="w-full h-full object-cover scale-110 object-[center_10%]"
+              />
+            </div>
+          ) : (
+            <div class="w-32 h-32 bg-primary-light rounded-full mx-auto mb-4 flex items-center justify-center">
+              <span class="text-4xl text-primary font-heading font-bold">
+                {member.name.split(' ').map(n => n[0]).join('')}
+              </span>
+            </div>
+          )}
           <h2 class="text-xl font-heading font-semibold text-center mb-2 text-neutral-dark">
             {member.name}
           </h2>

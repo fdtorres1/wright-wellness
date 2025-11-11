@@ -3,6 +3,13 @@ export interface TeamMember {
   slug: string;
   title: string;
   bio: string;
+  image?: string; // Optional path to headshot image
+  pronouns?: string; // Pronouns (e.g., "she/her", "they/them")
+  specialties?: string[]; // Areas of specialty
+  insurancePlans?: string[]; // Insurance plans accepted
+  fullBio?: string; // Full detailed bio content
+  specialSections?: { title: string; content: string }[]; // Special sections like "WOMEN'S ISSUES", "MIND AND BODY"
+  foundedYear?: number; // Year the practice was founded (for founders)
 }
 
 export const teamMembers: TeamMember[] = [
@@ -10,7 +17,45 @@ export const teamMembers: TeamMember[] = [
     name: "Dr. Lacey Wright",
     slug: "dr-lacey-wright",
     title: "Licensed Clinical Psychologist",
-    bio: "Licensed clinical psychologist since 2012; PsyD 2011; specialties include trauma, depression, anxiety, women's issues; uses CBT/ACT/MI; offers walk-and-talk therapy."
+    bio: "Licensed clinical psychologist since 2012; PsyD 2011; specialties include trauma, depression, anxiety, women's issues; uses CBT/ACT/MI; offers walk-and-talk therapy.",
+    image: "/team/lacey-wright.jpg",
+    pronouns: "she/her",
+    specialties: [
+      "Trauma/complex trauma",
+      "Depression",
+      "Mood Disorders",
+      "Anxiety",
+      "Women's Issues",
+      "Adjustment/Grief",
+      "Mindfulness",
+      "Relationships",
+      "Cognitive Decline/Dementia",
+      "Assessment/Testing"
+    ],
+    insurancePlans: [
+      "Aetna",
+      "Blue Cross Blue Shield",
+      "Cigna/Evernorth",
+      "Medicare Part B",
+      "Magellan",
+      "Optum/UHC"
+    ],
+    foundedYear: 2014,
+    fullBio: `I have been a licensed clinical psychologist in the state of Texas since 2012, and completed my Doctor of Psychology (PsyD) degree in 2011 from Midwestern University in Downers Grove, Illinois. I have worked with a variety of populations in many settings, including several psychiatric hospitals, an outpatient addiction center, a county mental health center, a juvenile department and runaway shelter, as a rehabilitation psychologist for a largely geriatric population, and now in full time private practice. I have specifically targeted my training experiences to provide me a well-rounded set of therapeutic skills to address many life issues.
+
+My theoretical orientation, or the way I approach psychotherapy with my patients, is a combination of several evidence-based treatments, primarily Cognitive-Behavioral Therapy (CBT), Acceptance and Commitment Therapy (ACT), Motivational Interviewing (MI) and trauma-informed approaches. With these approaches, we will explore thoughts, feelings, and behaviors/reactions, and how they might limit you in the present, as well as build upon your individual strengths. I believe each person is different, and my focus is on your symptoms and goals, rather than a diagnostic label. I will work with you to best address your needs and overall wellness. I value innovation, learning, and growth, and am always working to provide the most current treatment services available.
+
+I founded Wright Wellness to create a compassionate and supportive environment for both our patients and our clinical team. My ultimate goal is to provide quality and accessible mental health services in the private practice setting, and work towards reducing the stigma of mental health treatment one session at a time.`,
+    specialSections: [
+      {
+        title: "WOMEN'S ISSUES",
+        content: "The majority of my clinical research has focused primarily on women's issues, including the individual needs of women and their ideal treatment outcomes. Because of my time devoted to this topic, I have a continued special interest in working with women. If you are a woman needing extra support and guidance during a difficult life transition or issue, contact me and we can further explore your goals."
+      },
+      {
+        title: "MIND AND BODY",
+        content: "I also have a special interest in the relationship between the mind and the body, and I believe overall wellness comes from both mental and physical health. Therefore, I also highly encourage the consideration of walk and talk therapy, a newer therapeutic approaches that involves walking during psychotherapy sessions, which incorporates the whole body. If you are interested in this service, let me know, I would be happy to discuss it with you further."
+      }
+    ]
   },
   {
     name: "Dr. Dana Shafir",

@@ -5,6 +5,39 @@ All notable changes to the Wright Wellness website project will be documented in
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.1] - 2025-11-11
+
+### Added
+- **Team Member Headshots**: Added support for team member headshot images
+  - Dr. Lacey Wright's headshot image added to team profile
+  - Image display on team listing page and individual bio pages
+  - Fallback to initials when no image is available
+- **Enhanced Team Bio Pages**: Redesigned team member bio pages with modern card-based layout
+  - Two-column layout with sticky sidebar for specialties and insurance
+  - Badge/tag style display for specialties and insurance plans
+  - Card-based sections with gradient backgrounds for special content
+  - Support for extended bio content, specialties, insurance plans, and special sections
+- **Pronouns Support**: Added pronouns field to team member profiles
+  - Display pronouns (e.g., "she/her") on team member bio pages
+- **Team Data Structure**: Extended TeamMember interface with optional fields
+  - `image`: Optional path to headshot image
+  - `pronouns`: Optional pronouns field
+  - `specialties`: Array of specialty areas
+  - `insurancePlans`: Array of accepted insurance plans
+  - `fullBio`: Extended detailed bio content
+  - `specialSections`: Special content sections (e.g., "WOMEN'S ISSUES", "MIND AND BODY")
+  - `foundedYear`: Year practice was founded (for founders)
+
+### Changed
+- **Team Bio Page Design**: Complete redesign of team member bio pages
+  - Modern magazine-style layout with improved visual hierarchy
+  - Sidebar with quick reference information
+  - Enhanced visual elements including shadows, rings, and gradient backgrounds
+  - Improved responsive design for mobile and desktop
+
+### Fixed
+- Image positioning and zoom adjustments for Dr. Lacey Wright's headshot
+
 ## [1.1.0] - 2025-01-XX
 
 ### Added
