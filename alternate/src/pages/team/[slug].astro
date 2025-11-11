@@ -2,12 +2,14 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { teamMembers } from '../../data/team.ts';
 
-const { slug } = Astro.params;
-const member = teamMembers.find(m => m.slug === slug);
-
-if (!member) {
-  return Astro.redirect('/team', 404);
+export async function getStaticPaths() {
+  return teamMembers.map((member) => ({
+    params: { slug: member.slug },
+    props: { member },
+  }));
 }
+
+const { member } = Astro.props;
 ---
 
 <BaseLayout title={`${member.name} - Our Team`} description={member.bio}>
