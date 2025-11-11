@@ -112,6 +112,38 @@ const { member } = Astro.props;
                 </div>
               </div>
             )}
+
+            {member.fees && member.fees.length > 0 && (
+              <div class="bg-white rounded-lg p-6 shadow-sm border border-gray-100">
+                <h2 class="text-xl font-heading font-semibold text-neutral-dark mb-4 flex items-center">
+                  <span class="w-1 h-6 bg-primary rounded-full mr-3"></span>
+                  Services & Fees
+                </h2>
+                {member.serviceDescription && (
+                  <p class="text-sm text-neutral-dark mb-4">{member.serviceDescription}</p>
+                )}
+                <div class="space-y-3">
+                  {member.fees.map((fee) => (
+                    <div class="flex justify-between items-start gap-4 pb-3 border-b border-gray-100 last:border-0">
+                      <div class="flex-1">
+                        <span class="text-sm text-neutral-dark">
+                          {fee.note && <span class="text-primary font-semibold">{fee.note}</span>}
+                          {fee.service}
+                        </span>
+                      </div>
+                      <span class="text-sm font-semibold text-primary whitespace-nowrap">{fee.price}</span>
+                    </div>
+                  ))}
+                </div>
+                {member.serviceNotes && member.serviceNotes.length > 0 && (
+                  <div class="mt-4 pt-4 border-t border-gray-100 space-y-2">
+                    {member.serviceNotes.map((note) => (
+                      <p class="text-xs text-neutral-dark leading-relaxed">{note}</p>
+                    ))}
+                  </div>
+                )}
+              </div>
+            )}
           </div>
         </div>
       </div>

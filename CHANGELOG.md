@@ -5,6 +5,22 @@ All notable changes to the Wright Wellness website project will be documented in
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.0] - 2025-11-11
+
+### Added
+- **Service Fees on Team Bio Pages**: Added support for displaying individual clinician service fees
+  - New `ServiceFee` interface for service/price pairs
+  - Optional `fees`, `serviceDescription`, and `serviceNotes` fields in TeamMember interface
+  - "Services & Fees" card in team bio page sidebar
+  - Dr. Lacey Wright's fees added to her profile page
+  - Support for service notes (e.g., Walk and Talk Therapy, Telehealth availability)
+  - Clean table-like display of services and prices
+
+### Changed
+- **Team Bio Pages**: Enhanced sidebar with service fees information
+  - Fees displayed in organized card format with clear pricing
+  - Service descriptions and notes included for context
+
 ## [1.1.1] - 2025-11-11
 
 ### Added

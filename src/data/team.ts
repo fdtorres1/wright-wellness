@@ -1,3 +1,9 @@
+export interface ServiceFee {
+  service: string;
+  price: string;
+  note?: string; // Optional note (e.g., asterisk for special services)
+}
+
 export interface TeamMember {
   name: string;
   slug: string;
@@ -7,6 +13,9 @@ export interface TeamMember {
   pronouns?: string; // Pronouns (e.g., "she/her", "they/them")
   specialties?: string[]; // Areas of specialty
   insurancePlans?: string[]; // Insurance plans accepted
+  fees?: ServiceFee[]; // Service fees
+  serviceDescription?: string; // Description of who the clinician serves
+  serviceNotes?: string[]; // Additional notes about services (e.g., Walk and Talk, Telehealth)
   fullBio?: string; // Full detailed bio content
   specialSections?: { title: string; content: string }[]; // Special sections like "WOMEN'S ISSUES", "MIND AND BODY"
   foundedYear?: number; // Year the practice was founded (for founders)
@@ -41,6 +50,18 @@ export const teamMembers: TeamMember[] = [
       "Optum/UHC"
     ],
     foundedYear: 2014,
+    fees: [
+      { service: "Diagnostic Evaluation", price: "$190" },
+      { service: "Individual Psychotherapy (50-minute follow-up)", price: "$155" },
+      { service: "Walk and Talk Therapy (50-minute session)", price: "$155", note: "*" },
+      { service: "Couples Psychotherapy — Initial Evaluation", price: "$190" },
+      { service: "Couples Psychotherapy (50-minute follow-up)", price: "$165" }
+    ],
+    serviceDescription: "Lacey Wright, PsyD, provides the following services to adults, 18-years of age and older:",
+    serviceNotes: [
+      "*Walk and Talk Therapy is a unique treatment intervention that combines both the benefits of psychotherapy with physical exercise. Let us know if you are interested in Walk and Talk therapy services!",
+      "*Telehealth Services also available"
+    ],
     fullBio: `I have been a licensed clinical psychologist in the state of Texas since 2012, and completed my Doctor of Psychology (PsyD) degree in 2011 from Midwestern University in Downers Grove, Illinois. I have worked with a variety of populations in many settings, including several psychiatric hospitals, an outpatient addiction center, a county mental health center, a juvenile department and runaway shelter, as a rehabilitation psychologist for a largely geriatric population, and now in full time private practice. I have specifically targeted my training experiences to provide me a well-rounded set of therapeutic skills to address many life issues.
 
 My theoretical orientation, or the way I approach psychotherapy with my patients, is a combination of several evidence-based treatments, primarily Cognitive-Behavioral Therapy (CBT), Acceptance and Commitment Therapy (ACT), Motivational Interviewing (MI) and trauma-informed approaches. With these approaches, we will explore thoughts, feelings, and behaviors/reactions, and how they might limit you in the present, as well as build upon your individual strengths. I believe each person is different, and my focus is on your symptoms and goals, rather than a diagnostic label. I will work with you to best address your needs and overall wellness. I value innovation, learning, and growth, and am always working to provide the most current treatment services available.
