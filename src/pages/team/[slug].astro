@@ -10,9 +10,26 @@ export async function getStaticPaths() {
 }
 
 const { member } = Astro.props;
+
+// Build SEO-friendly description
+const seoDescription = member.fullBio 
+  ? `${member.name} - ${member.title} at Wright Wellness. ${member.fullBio.substring(0, 120)}...`
+  : `${member.name} - ${member.title} at Wright Wellness. ${member.bio}`;
+
+// Build canonical URL
+const canonicalUrl = `/team/${member.slug}`;
+
+// Build OG image (use member image if available, otherwise logo)
+const ogImage = member.image ? `https://wrightwellness.me${member.image}` : 'https://wrightwellness.me/logo.jpg';
 ---
 
-<BaseLayout title={member.name} description={`${member.name} - ${member.title} at Wright Wellness`}>
+<BaseLayout 
+  title={member.name} 
+  description={seoDescription}
+  canonicalUrl={canonicalUrl}
+  ogImage={ogImage}
+  ogType="profile"
+>
   <div class="container mx-auto px-4 py-16">
     <div class="max-w-6xl mx-auto">
       <!-- Header Section -->
@@ -22,6 +39,7 @@ const { member } = Astro.props;
             <img 
               src={member.image} 
               alt={member.name}
+              loading="lazy"
               class="w-full h-full object-cover scale-110 object-[center_10%]"
             />
           </div>
@@ -177,5 +195,31 @@ const { member } = Astro.props;
       </div>
     </div>
   </div>
+
+  <!-- Person Schema for SEO -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": member.name,
+    "jobTitle": member.title,
+    "worksFor": {
+      "@type": "MedicalOrganization",
+      "name": "Wright Wellness",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "1398 W. Mayfield Rd., Suite 220",
+        "addressLocality": "Arlington",
+        "addressRegion": "TX",
+        "postalCode": "76015",
+        "addressCountry": "US"
+      }
+    },
+    "url": `https://wrightwellness.me/team/${member.slug}`,
+    "image": member.image ? `https://wrightwellness.me${member.image}` : undefined,
+    "description": member.fullBio || member.bio,
+    ...(member.specialties && member.specialties.length > 0 && {
+      "knowsAbout": member.specialties
+    })
+  })} />
 </BaseLayout>
 

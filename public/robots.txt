@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /_ARCHIVED_OLD_HOMEPAGE.astro
+
+Sitemap: https://wrightwellness.me/sitemap.xml
+

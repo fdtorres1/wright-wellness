@@ -2,7 +2,12 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="Contact Us" description="Contact Wright Wellness - Get in touch with our team.">
+<BaseLayout 
+  title="Contact Us" 
+  description="Contact Wright Wellness in Arlington, TX. Get in touch with our team at 682-777-4325 or office@wrightwellness.me"
+  canonicalUrl="/contact"
+  ogImage="/logo.jpg"
+>
   <section>
     <div class="wrap">
       <header>
@@ -108,5 +113,57 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </div>
     </div>
   </section>
+
+  <!-- Enhanced LocalBusiness Schema for SEO -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "MedicalBusiness",
+    "name": "Wright Wellness",
+    "image": "https://wrightwellness.me/logo.jpg",
+    "@id": "https://wrightwellness.me",
+    "url": "https://wrightwellness.me",
+    "telephone": "+1-682-777-4325",
+    "email": "office@wrightwellness.me",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "1398 W. Mayfield Rd., Suite 220",
+      "addressLocality": "Arlington",
+      "addressRegion": "TX",
+      "postalCode": "76015",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "32.7357",
+      "longitude": "-97.1081"
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens": "09:00",
+      "closes": "17:00"
+    },
+    "priceRange": "$$",
+    "medicalSpecialty": [
+      "Psychiatry",
+      "Counseling",
+      "Mental Health",
+      "Therapy"
+    ],
+    "areaServed": {
+      "@type": "City",
+      "name": "Arlington",
+      "containedIn": {
+        "@type": "State",
+        "name": "Texas"
+      }
+    }
+  })} />
 </BaseLayout>
 

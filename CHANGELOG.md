@@ -5,6 +5,15 @@ All notable changes to the Wright Wellness website project will be documented in
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.2] - 2025-01-XX
+
+### Added
+- **Footer Attribution**: Added "Designed by Elaren Studios" credit in footer
+- **Crisis Hotline Link**: Made 988 crisis hotline number clickable with phone dialer link
+
+### Changed
+- **Footer Styling**: Attribution text matches copyright notice styling (same font size and color)
+
 ## [1.3.1] - 2025-01-XX
 
 ### Added

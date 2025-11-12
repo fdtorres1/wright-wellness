@@ -2,7 +2,12 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="Counseling Services" description="Individual, couples, and family counseling services at Wright Wellness.">
+<BaseLayout 
+  title="Counseling Services" 
+  description="Individual, couples, and family counseling services at Wright Wellness. Evidence-based therapy including CBT, ACT, DBT, EMDR in Arlington, TX."
+  canonicalUrl="/services/counseling-services"
+  ogImage="/logo.jpg"
+>
   <section>
     <div class="wrap">
       <header>
@@ -29,5 +34,34 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       </div>
     </div>
   </section>
+
+  <!-- Service Schema for SEO -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Counseling Services",
+    "provider": {
+      "@type": "MedicalOrganization",
+      "name": "Wright Wellness",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "1398 W. Mayfield Rd., Suite 220",
+        "addressLocality": "Arlington",
+        "addressRegion": "TX",
+        "postalCode": "76015",
+        "addressCountry": "US"
+      },
+      "telephone": "+1-682-777-4325"
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": "Arlington",
+      "containedIn": {
+        "@type": "State",
+        "name": "Texas"
+      }
+    },
+    "description": "Individual, couples, and family counseling services using evidence-based approaches including CBT, ACT, DBT, EMDR, and more."
+  })} />
 </BaseLayout>
 

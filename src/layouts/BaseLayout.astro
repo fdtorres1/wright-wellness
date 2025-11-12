@@ -6,20 +6,66 @@ import '../styles/global.css';
 interface Props {
   title: string;
   description?: string;
+  ogImage?: string;
+  ogType?: string;
+  canonicalUrl?: string;
+  twitterCard?: 'summary' | 'summary_large_image' | 'app' | 'player';
+  lang?: string;
 }
 
-const { title, description = 'Wright Wellness - Take a step today towards a healthier you.' } = Astro.props;
+const { 
+  title, 
+  description = 'Wright Wellness - Take a step today towards a healthier you.',
+  ogImage = 'https://wrightwellness.me/logo.jpg',
+  ogType = 'website',
+  canonicalUrl,
+  twitterCard = 'summary_large_image',
+  lang = 'en'
+} = Astro.props;
+
+// Build full title
+const fullTitle = `${title} | Wright Wellness`;
+
+// Get canonical URL
+const siteUrl = 'https://wrightwellness.me';
+const currentUrl = canonicalUrl || Astro.url.pathname;
+const fullCanonicalUrl = currentUrl.startsWith('http') ? currentUrl : `${siteUrl}${currentUrl}`;
+
+// Build full OG image URL
+const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title} | Wright Wellness</title>
+    <meta name="theme-color" content="#7D4698" />
+    
+    <!-- Preconnect to external resources -->
+    <link rel="preconnect" href="https://wrightwellness.clientsecure.me" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href={fullCanonicalUrl} />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={fullCanonicalUrl} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={fullOgImage} />
+    <meta property="og:site_name" content="Wright Wellness" />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content={twitterCard} />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={fullOgImage} />
+    
+    <title>{fullTitle}</title>
   </head>
   <body>
     <Header />

@@ -3,7 +3,12 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { teamMembers } from '../../data/team';
 ---
 
-<BaseLayout title="Our Team" description="Meet the compassionate team at Wright Wellness dedicated to your mental health and wellness.">
+<BaseLayout 
+  title="Our Team" 
+  description="Meet the compassionate team at Wright Wellness dedicated to your mental health and wellness in Arlington, TX."
+  canonicalUrl="/team"
+  ogImage="/logo.jpg"
+>
   <section>
     <div class="wrap">
       <header>
@@ -23,6 +28,7 @@ import { teamMembers } from '../../data/team';
                 <img 
                   src={member.image} 
                   alt={member.name}
+                  loading="lazy"
                   style="width: 100%; height: 100%; object-fit: cover; transform: scale(1.1); object-position: center 10%;"
                 />
               </div>
